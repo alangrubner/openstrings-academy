@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Open Strings Academy</title>
+  <meta name="description" content="Alan Grubner — violinist, educator, and IMS-lineage vipassana practitioner. The story behind Open Strings Academy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:     #8B1A2B;
+      --ink:        #1a1a18;
+      --ink-light:  #4a4a46;
+      --rule:       #d8d4cc;
+      --bg:         #faf9f6;
+      --bg-warm:    #f3f0ea;
+      --serif:      'Outfit', system-ui, sans-serif;
+      --sans:       'Outfit', system-ui, sans-serif;
+      --max:        680px;
+      --max-wide:   900px;
+    }
+
+    html { font-size: 18px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      line-height: 1.75;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.active { color: var(--ink); }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent) !important;
+      text-decoration: none;
+    }
+
+    /* ── Hero photo ── */
+    .hero-matte {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 520px;
+      display: block;
+      background-image: url('alan-grubner-violin-mountains.JPG');
+      background-repeat: no-repeat;
+      background-position: left 15%;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Main content wrapper ── */
+    main {
+      max-width: 1060px;
+      margin: 0 auto 0 8%;
+      padding: 0 1.5rem 6rem;
+    }
+
+    /* ── Two-column: narrative + bio ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 5rem;
+      align-items: start;
+    }
+
+    /* ── Section 1: First-person narrative ── */
+    .section-narrative {
+      padding-top: 4rem;
+    }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 2rem;
+    }
+    .section-narrative p {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-narrative p:last-child { margin-bottom: 0; }
+
+    /* ── Divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 3.5rem 0;
+    }
+
+    /* ── Section 2: Third-person bio ── */
+    .section-bio {
+      padding-top: 4rem;
+    }
+
+    .section-bio h2 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--ink-light);
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.01em;
+      margin-left: -1.5rem;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--rule);
+    }
+
+    .section-bio p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+    }
+
+    .section-bio p:last-child { margin-bottom: 0; }
+
+    /* ── Section 3: Press ── */
+    .section-press {
+      background: var(--bg-warm);
+      border-radius: 2px;
+      padding: 2.5rem 2rem;
+      margin-top: 3.5rem;
+      /* break out of the narrow column slightly */
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+
+    .press-heading {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 2rem;
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem;
+    }
+
+    .press-block h3 {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+
+    .press-block p {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    /* Podcast block spans full width */
+    .press-block.full {
+      grid-column: 1 / -1;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--ink-light);
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--ink-light);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      main {
+        margin-left: 5%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1.25rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+
+      .hero-matte::after { display: none; }
+
+      main { margin-left: 0; }
+
+      .section-narrative { padding-top: 2.5rem; }
+      .section-bio { padding-top: 2rem; }
+
+      .section-press {
+        margin-left: -1.25rem;
+        margin-right: -1.25rem;
+        padding: 2rem 1.25rem;
+      }
+
+      .press-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .press-block.full { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <a class="nav-logo" href="/">Open Strings</a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#courses">Courses</a></li>
+      <li><a href="blog.html">Writing</a></li>
+      <li><a href="/#optin" class="nav-cta">Path opens here →</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero Photo ── -->
+  <!-- Upload alan-grubner-violin-mountains.jpg to your repo root, then this src resolves automatically -->
+  <div class="hero-matte">
+    <div class="hero-photo" role="img" aria-label="Alan Grubner playing violin outdoors, mountain landscape behind him"></div>
+  </div>
+
+  <main>
+
+    <div class="two-col">
+
+    <!-- ── Section 1: First-Person Narrative ── -->
+    <section class="section-narrative">
+      <p class="section-label">About</p>
+
+      <p>I came to music sideways. My formal training was in literature — contemporary American poetry, to be specific — and what I was learning there, without knowing it, was how to attend. To the line break. To the silence after the word. To what the poem was doing beneath what it was saying.</p>
+
+      <p>Music came next, and jazz after that. Berklee. Improvisation. And with improvisation came the confrontation that I suspect brings many players to a page like this one: the moment when technique runs out and something else is required. I didn't have a name for what that something was. I only knew I was afraid of it.</p>
+
+      <p>What changed wasn't a new method. It was a contemplative practice — IMS-lineage vipassana — that taught me to stay with what arose without flinching. The fear of the wrong note and the fear of impermanence turned out to be the same fear. And both yielded to the same practice.</p>
+
+      <p>I've performed at Carnegie Hall, toured with players across jazz, bluegrass, folk, and ambient music, scored films, and built a teaching practice over two decades. None of that is why I built Open Strings Academy. I built it because the crossing is real, and it's available to you at whatever level you're starting from.</p>
+    </section>
+
+    <!-- ── Section 2: Condensed Third-Person Bio ── -->
+    <section class="section-bio">
+      <h2>Background</h2>
+
+      <p>Alan Grubner graduated summa cum laude from Dartmouth College with a B.A. in English, with a focus on contemporary American poetry. Without prior conservatory training, he was awarded a Graduate Assistantship Scholarship as the first violinist accepted into Berklee College of Music's Masters in Jazz Studies program.</p>
+
+      <p>His teaching spans two decades — as adjunct professor of violin and improvisation at Five Towns College, on faculty at Brooklyn Waldorf School, and in an active private practice. His pedagogy centers on non-judgmental, somatic awareness: the immediacy of inner and outer feedback as raw material for cultivating presence at the instrument.</p>
+
+      <p>As a performer, Alan has appeared on stage at Carnegie Hall's Stern Auditorium for fourteen sold-out concerts, and has performed and recorded alongside Eddie Palmieri, Jerry Douglas, Paquito D'Rivera, Christian McBride, Edmar Castaneda, Jason Lindner, Sam Bush, Tony Trischka, Nefesh Mountain, and Olivia Newton-John, among many others. His playing has been heard across genres that rarely share a stage: jazz, folk, bluegrass, ambient, Latin, and film.</p>
+
+      <p>His album <em>Convergence</em> led to a recorded conversation with multi-platinum producer Anthony J. Resta for the podcast <em>Studio Secrets A to Z</em>, in which Alan discusses his evolution as an improviser and his work in ambient and healing music. He records as a Spacious.FM artist, collaborating with founder Joshua Geisler and other luminaries in the ambient music world.</p>
+
+      <p>Alan's work at Open Strings Academy draws together his parallel lives as performer, educator, and IMS-lineage vipassana practitioner. He teaches from the conviction that the musical path and the contemplative path are, in the end, one path.</p>
+    </section>
+
+    </div><!-- /.two-col -->
+
+    <hr />
+
+    <!-- ── Section 3: Press & Appearances ── -->
+    <section class="section-press">
+      <p class="press-heading">Selected Performances &amp; Appearances</p>
+
+      <div class="press-grid">
+
+        <div class="press-block">
+          <h3>Stages &amp; Venues</h3>
+          <p>Carnegie Hall, Stern Auditorium (14 sold-out concerts) · Lincoln Center · Grand Ole Opry, Nashville · Levon Helm Studios, Woodstock · Shanghai World Expo (2010) · Woodsongs, Lexington</p>
+        </div>
+
+        <div class="press-block">
+          <h3>Press</h3>
+          <p>DownBeat · Rolling Stone · No Depression · Bluegrass Unlimited</p>
+        </div>
+
+        <div class="press-block">
+          <h3>Selected Collaborators</h3>
+          <p>Eddie Palmieri · Jerry Douglas · Paquito D'Rivera · Christian McBride · Edmar Castaneda · Jason Lindner · Sam Bush · Tony Trischka · John Doyle · Larry Harlow · Chieli Minucci's Special EFX · Dana Leong · Nefesh Mountain · Olivia Newton-John · Garth Stevenson · Sonya Kitchell · Uyanga Bold · Joshua Geisler</p>
+        </div>
+
+        <div class="press-block">
+          <h3>Broadcast &amp; Media</h3>
+          <p>CNN · ABC Good Morning America · Sirius XM · WFMU · WKCR (New York) · WSM (Nashville) · WWOZ (New Orleans) · WNCW (Asheville) · Ditty TV (Memphis)</p>
+        </div>
+
+        <div class="press-block full">
+          <h3>Podcast</h3>
+          <p><em>Studio Secrets A to Z</em> with Anthony J. Resta &nbsp;·&nbsp; On <em>Convergence</em>, improvisation, and ambient soundscapes &nbsp;·&nbsp; Recorded at Resta's Laurel Canyon studio</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    © 2025 · The Interval · <a href="https://instagram.com/theinterval">@theinterval</a> · Where classical training meets creative freedom.
+  </footer>
+
+</body>
+</html>

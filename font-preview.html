@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Preview · Open Strings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&family=Archivo:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #faf9f6;
+    --bg-warm:   #f3f0ea;
+    --ink:       #1a1a18;
+    --ink-light: #4a4a46;
+    --accent:    #8B1A2B;
+    --rule:      #d8d4cc;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    padding: 48px 40px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .page-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink-light);
+    font-weight: 300;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 24px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .card {
+    background: var(--bg);
+    padding: 36px 32px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover { background: var(--bg-warm); }
+
+  .font-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 22px;
+  }
+
+  .sample-name {
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .sample-sub {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sample-body {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--ink-light);
+    margin-bottom: 24px;
+    flex: 1;
+  }
+
+  .sample-nav {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    opacity: 0.45;
+  }
+
+  /* System fonts */
+  .f-helvetica-neue { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  .f-helvetica      { font-family: Helvetica, Arial, sans-serif; }
+  .f-gill-sans      { font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; }
+  .f-optima         { font-family: Optima, Candara, 'Noto Sans', sans-serif; }
+
+  /* Google Fonts */
+  .f-outfit  { font-family: 'Outfit', sans-serif; }
+  .f-jost    { font-family: 'Jost', sans-serif; }
+  .f-barlow  { font-family: 'Barlow', sans-serif; }
+  .f-archivo { font-family: 'Archivo', sans-serif; }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    body  { padding: 32px 24px 60px; }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<p class="page-label">Open Strings · About Page</p>
+<p class="page-title">Sans-serif font options — hover a card to highlight</p>
+
+<div class="grid">
+
+  <!-- Outfit -->
+  <div class="card f-outfit">
+    <div class="font-label">Outfit</div>
+    <div class="sample-name">Alan Grubner</div>
+    <div class="sample-sub">Violinist &middot; Educator &middot; Meditator</div>
+    <div class="sample-body">I came to improvisation late — after two decades of classical training that left me technically fluent but creatively frozen.</div>
+    <div class="sample-nav">About &nbsp;&middot;&nbsp; Writing &nbsp;&middot;&nbsp; Courses</div>
+  </div>
+
+  <!-- Helvetica Neue -->
+  <div class="card f-helvetica-neue">
+    <div class="font-label">Helvetica Neue</div>
+    <div class="sample-name">Alan Grubner</div>
+    <div class="sample-sub">Violinist &middot; Educator &middot; Meditator</div>
+    <div class="sample-body">I came to improvisation late — after two decades of classical training that left me technically fluent but creatively frozen.</div>
+    <div class="sample-nav">About &nbsp;&middot;&nbsp; Writing &nbsp;&middot;&nbsp; Courses</div>
+  </div>
+
+  <!-- Helvetica -->
+  <div class="card f-helvetica">
+    <div class="font-label">Helvetica</div>
+    <div class="sample-name">Alan Grubner</div>
+    <div class="sample-sub">Violinist &middot; Educator &middot; Meditator</div>
+    <div class="sample-body">I came to improvisation late — after two decades of classical training that left me technically fluent but creatively frozen.</div>
+    <div class="sample-nav">About &nbsp;&middot;&nbsp; Writing &nbsp;&middot;&nbsp; Courses</div>
+  </div>
+
+  <!-- Gill Sans -->
+  <div class="card f-gill-sans">
+    <div class="font-label">Gill Sans</div>
+    <div class="sample-name">Alan Grubner</div>
+    <div class="sample-sub">Violinist &middot; Educator &middot; Meditator</div>
+    <div class="sample-body">I came to improvisation late — after two decades of classical training that left me technically fluent but creatively frozen.</div>
+    <div class="sample-nav">About &nbsp;&middot;&nbsp; Writing &nbsp;&middot;&nbsp; Courses</div>
+  </div>
+
+  <!-- Optima -->
+  <div class="card f-optima">
+    <div class="font-label">Optima</div>
+    <div class="sample-name">Alan Grubner</div>
+    <div class="sample-sub">Violinist &middot; Educator &middot; Meditator</div>
+    <div class="sample-body">I came to improvisation late — after two decades of classical training that left me technically fluent but creatively frozen.</div>
+    <div class="sample-nav">About &nbsp;&middot;&nbsp; Writing &nbsp;&middot;&nbsp; Courses</div>
+  </div>
+
+  <!-- Jost (Futura-inspired) -->
+  <div class="card f-jost">
+    <div class="font-label">Jost — Futura-inspired</div>
+    <div class="sample-name">Alan Grubner</div>
+    <div class="sample-sub">Violinist &middot; Educator &middot; Meditator</div>
+    <div class="sample-body">I came to improvisation late — after two decades of classical training that left me technically fluent but creatively frozen.</div>
+    <div class="sample-nav">About &nbsp;&middot;&nbsp; Writing &nbsp;&middot;&nbsp; Courses</div>
+  </div>
+
+  <!-- Barlow -->
+  <div class="card f-barlow">
+    <div class="font-label">Barlow</div>
+    <div class="sample-name">Alan Grubner</div>
+    <div class="sample-sub">Violinist &middot; Educator &middot; Meditator</div>
+    <div class="sample-body">I came to improvisation late — after two decades of classical training that left me technically fluent but creatively frozen.</div>
+    <div class="sample-nav">About &nbsp;&middot;&nbsp; Writing &nbsp;&middot;&nbsp; Courses</div>
+  </div>
+
+  <!-- Archivo -->
+  <div class="card f-archivo">
+    <div class="font-label">Archivo</div>
+    <div class="sample-name">Alan Grubner</div>
+    <div class="sample-sub">Violinist &middot; Educator &middot; Meditator</div>
+    <div class="sample-body">I came to improvisation late — after two decades of classical training that left me technically fluent but creatively frozen.</div>
+    <div class="sample-nav">About &nbsp;&middot;&nbsp; Writing &nbsp;&middot;&nbsp; Courses</div>
+  </div>
+
+</div>
+
+</body>
+</html>

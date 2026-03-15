@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vibrato Spectrum: How to NOT Sound Like a Violinist | Open Strings</title>
+<meta name="description" content="From straight tone to wide slow vibrato — and everything effects processing opens beyond that. Your left hand has always been capable of this range. Here's how to use it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #FAFAF8; --bg-alt: #F3F1EC; --ink: #1C1C1A; --ink-mid: #4A4A46; --ink-light: #8A8A84; --rule: #E2DFDA; --accent: #8B1A2B; --accent-hover: #6E1522; }
+  * { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  header { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 100; }
+  .header-inner { max-width: 1100px; margin: 0 auto; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .site-name { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+  .header-nav { display: flex; gap: 32px; list-style: none; }
+  .header-nav a { font-size: 0.82rem; color: var(--ink-mid); text-decoration: none; font-weight: 400; transition: color 0.15s; }
+  .header-nav a:hover { color: var(--ink); } .header-nav .nav-cta { color: var(--accent); font-weight: 500; }
+  .article-wrap { max-width: 680px; margin: 0 auto; padding: 64px 40px 100px; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--ink-light); text-decoration: none; margin-bottom: 48px; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); } .back-link::before { content: '\2190'; }
+  .article-category { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; color: var(--accent); margin-bottom: 16px; }
+  .article-title { font-family: 'Lora', serif; font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 600; line-height: 1.18; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 20px; }
+  .article-subtitle { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 400; font-style: italic; color: var(--ink-mid); line-height: 1.65; margin-bottom: 32px; }
+  .article-meta { display: flex; align-items: center; gap: 12px; font-size: 0.78rem; color: var(--ink-light); padding-bottom: 36px; border-bottom: 1px solid var(--rule); margin-bottom: 48px; }
+  .article-meta .sep { opacity: 0.4; }
+  .article-body p { font-family: 'Lora', serif; font-size: 1.05rem; line-height: 1.88; color: var(--ink-mid); margin-bottom: 28px; }
+  .article-body p:first-child { color: var(--ink); font-size: 1.1rem; }
+  .article-body h2 { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.015em; color: var(--ink); margin-top: 56px; margin-bottom: 20px; }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 52px 0; }
+  .article-body em { font-style: italic; }
+  .pull-quote { font-family: 'Lora', serif; font-size: 1.18rem; font-style: italic; color: var(--ink); line-height: 1.65; border-left: 2px solid var(--accent); padding-left: 24px; margin: 44px 0; }
+  .article-cta { background: var(--bg-alt); border: 1px solid var(--rule); padding: 36px 40px; margin-top: 64px; }
+  .article-cta .cta-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+  .article-cta p { font-family: 'Lora', serif; font-size: 0.95rem; line-height: 1.75; color: var(--ink-mid); font-style: italic; }
+  .article-cta a { display: inline-block; margin-top: 16px; font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .article-cta a::after { content: ' \2192'; }
+  footer { border-top: 1px solid var(--rule); padding: 36px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-brand { font-family: 'Lora', serif; font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+  .footer-links { display: flex; gap: 24px; } .footer-links a { font-size: 0.78rem; color: var(--ink-light); text-decoration: none; }
+  .footer-copy { width: 100%; font-size: 0.72rem; color: var(--ink-light); margin-top: 8px; font-weight: 300; }
+  @media (max-width: 600px) { .article-wrap { padding: 40px 24px 80px; } .header-inner { padding: 18px 24px; } .header-nav { display: none; } footer { padding: 36px 24px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-name">Open Strings, Open to Your Practice</a>
+    <ul class="header-nav">
+      <li><a href="#">About</a></li><li><a href="#">Courses</a></li>
+      <li><a href="blog.html">Writing</a></li>
+      <li><a href="#" class="nav-cta">Begin here &thinsp;&rarr;</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <a href="blog.html" class="back-link">Back to all articles</a>
+  <div class="article-category">Technique &amp; Practice</div>
+  <h1 class="article-title">The Vibrato Spectrum: How to NOT Sound Like a Violinist</h1>
+  <p class="article-subtitle">Use Your Left Hand the Way a Jazz Singer Uses Their Voice — from straight tone to wide slow vibrato to microtonal color, and everything effects processing opens beyond that.</p>
+  <div class="article-meta">
+    <span>3 min read</span><span class="sep">·</span><span>Tone Color</span><span class="sep">·</span><span>March 2026</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>Listen to a great jazz singer sustain a single note for four bars. The tone is not static. It begins straight — pure, unadorned, the pitch itself with nothing added. Then something arrives: a slow, wide pulse, unmistakably human, like a breath made audible. Then it narrows. Then it disappears again into straight tone, and the phrase ends.</p>
+
+    <p>That singer is playing the vibrato spectrum in real time, consciously, as a form of expression as deliberate as the note choice itself. The vibrato is not decoration. It is modulation — the voice's left hand, making the same pitch say different things as it moves through time.</p>
+
+    <p>Your left hand can do exactly this. Most classical training never asks it to.</p>
+
+    <hr>
+
+    <h2>The Default Setting Problem</h2>
+
+    <p>Classical violin pedagogy has, for the better part of a century, treated vibrato as a continuous feature of the tone rather than an expressive variable. The ideal was — and in many studios still is — a fast, narrow, consistent vibrato applied to every sustained note above a certain length. The vibrato became the tone. Straight tone became an effect, used sparingly, for specific expressive or stylistic purposes.</p>
+
+    <p>This is a reasonable aesthetic position within the Romantic and early modern orchestral repertoire. It is a significant limitation everywhere else.</p>
+
+    <p>The jazz singer treats vibrato the way a painter treats a brush mark: applied when wanted, absent when not, varied in width and rate according to what the phrase needs at this moment. A slower, wider pulse on the peak of a phrase reads as emotional intensity — it is the voice opening, becoming more vulnerable. A fast narrow vibrato reads as urgency or brightness. Straight tone reads as directness, clarity, restraint: the note without commentary.</p>
+
+    <p>The ability to move fluidly across this spectrum — not as a technique exercise but as a real-time expressive choice — is one of the distinguishing features of violinists whose playing sounds genuinely vocal. It is also, once the default vibrato setting has been loosened, more available than most classical players expect.</p>
+
+    <hr>
+
+    <h2>Rate and Width as Independent Variables</h2>
+
+    <p>Vibrato has two parameters that can be controlled separately: <em>rate</em> (how fast the oscillation cycles) and <em>width</em> (how far the pitch deviates from center in each direction). Classical training typically treats these as coupled — a fast vibrato is also narrow; a slow vibrato is also wide — because that is how the tension-based classical vibrato mechanics tend to work.</p>
+
+    <p>But rate and width are genuinely independent variables, and separating them opens additional territory. A slow, <em>narrow</em> vibrato produces a subtle warmth — a slight shimmer rather than a pulse, closer to the microtonal inflection that Hindustani classical music uses for tonal color than to anything in the Western classical tradition. A fast, <em>wide</em> vibrato produces an almost keening intensity, urgent and exposed. These are different sounds with different expressive registers, and both are available on the instrument if the left hand has learned to produce them independently.</p>
+
+    <p>The practice: work on rate and width separately, as you would practice any other technique. Sustain a single pitch. Set a slow rate — around one cycle per second — and practice controlling the width of the oscillation independently of that rate. Then set a fast rate and do the same. The hand will initially resist decoupling what it has always kept coupled. With deliberate practice, the coupling loosens.</p>
+
+    <hr>
+
+    <h2>What Effects Processing Opens</h2>
+
+    <p>When vibrato — controlled, variable, deliberate — meets delay or reverb, something happens that acoustic playing alone cannot produce.</p>
+
+    <p>A slow, wide vibrato played through a rhythmic delay creates phasing patterns: the original signal and its delay copy sit at slightly different points in the vibrato cycle, producing a shimmering, beating interference pattern that moves as the vibrato moves. The left hand becomes, in a precise sense, a modulation source — controlling not just pitch but the rhythmic behavior of the entire sound field.</p>
+
+    <p>Reverb extends this further. The tail of a reverberant tone carries the vibrato character into the decay — a wide slow vibrato produces a lush, spread reverberation; straight tone produces a cleaner, more defined one. The left hand's choices shape the sonic space as much as the physical room does.</p>
+
+    <div class="pull-quote">With electronics, the vibrato decision is no longer just about the note. It is about the texture of the air the note lives in.</div>
+
+    <p>This is where the violin begins to sound like something other than itself — not through technical trickery, but through the intentional use of a parameter the left hand has always controlled, extended into a sonic environment that responds to it in ways no acoustic setting can. The instrument becomes strange and familiar at once: recognizably a violin and capable of something that sounds like nothing you've heard before.</p>
+
+    <hr>
+
+    <h2>Where to Start</h2>
+
+    <p>The beginning practice is simple: for one week, play everything without vibrato. Not as a punishment, not as a historical style exercise, but as a way of hearing the tone directly — the fundamental pitch, the bow's contribution to the sound, the resonance of the instrument — without the vibrato's continuous modulation covering it. Hear what is there when the default setting is removed.</p>
+
+    <p>Then reintroduce vibrato deliberately, note by note, phrase by phrase. Not as a habit that runs automatically, but as a choice. Ask, each time: does this note want vibrato? What kind? How wide? How fast? Let the answer come from the music rather than from the training.</p>
+
+    <p>The jazz singer already knows the answer to these questions. They know it because they have no other option: the voice does not vibrate automatically. Every inflection is chosen. The left hand, once it has been given the same freedom, can learn to choose in exactly the same way.</p>
+
+  </div>
+
+  <div class="article-cta">
+    <div class="cta-label">Continue this work</div>
+    <p>Open Strings Academy's first course — Instrument as Contemplative Practice — builds directly on this kind of left-hand attention: using the instrument as an expressive and contemplative object, with everything from drone practice to electronics integration. Launching this spring.</p>
+    <a href="blog.html">Read more on the blog</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Open Strings Blog</div>
+    <div class="footer-links">
+      <a href="#">About</a><a href="blog.html">All Articles</a><a href="#">Resources</a><a href="#">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Open Strings &middot; Music, mindfulness &amp; improvisation for string players</div>
+  </div>
+</footer>
+</body>
+</html>

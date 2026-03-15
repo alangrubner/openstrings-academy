@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Strings Blog | Music, Mindfulness & Improvisation for String Players</title>
+<meta name="description" content="Deep resources for string players learning to improvise freely, reduce performance anxiety, and cultivate a mindful music practice. Violin, viola, cello, bass.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --bg-alt: #F3F1EC;
+    --ink: #1C1C1A;
+    --ink-mid: #4A4A46;
+    --ink-light: #8A8A84;
+    --rule: #E2DFDA;
+    --accent: #8B1A2B;
+    --accent-hover: #6E1522;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-name {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .header-nav a {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.15s;
+  }
+
+  .header-nav a:hover { color: var(--ink); }
+  .header-nav .nav-cta { color: var(--accent); font-weight: 500; }
+  .header-nav .nav-cta:hover { color: var(--accent-hover); }
+
+  /* PAGE HEADER */
+  .page-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 40px 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .page-header-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 680px;
+    margin-bottom: 16px;
+  }
+
+  .page-header p {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    max-width: 560px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+    position: sticky;
+    top: 57px;
+    z-index: 90;
+  }
+
+  .filter-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .filter-inner::-webkit-scrollbar { display: none; }
+
+  .filter-btn {
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    padding: 14px 18px;
+    cursor: pointer;
+    color: var(--ink-light);
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    font-weight: 400;
+  }
+
+  .filter-btn:first-child { padding-left: 0; }
+  .filter-btn:hover { color: var(--ink); }
+  .filter-btn.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 500; }
+
+  /* MAIN */
+  .main-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 52px 40px 80px;
+  }
+
+  /* FEATURED POST */
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 48px;
+  }
+
+  .featured-left { padding-right: 60px; position: relative; cursor: pointer; }
+  .featured-left .post-category { margin-bottom: 16px; transition: color 0.15s; }
+
+  .featured-left h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-weight: 600;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 18px;
+    transition: color 0.15s;
+  }
+
+  .featured-left h2 em { font-style: italic; font-weight: 400; }
+
+  .featured-excerpt {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-weight: 300;
+    transition: color 0.15s;
+  }
+
+  .featured-left .card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .featured-left:hover .post-category { color: var(--accent-hover); }
+  .featured-left:hover h2 { color: var(--accent); }
+  .featured-left:hover .featured-excerpt { color: var(--ink); }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.78rem;
+    color: var(--ink-light);
+  }
+
+  .post-meta .sep { opacity: 0.4; }
+
+  .read-more {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 20px;
+    transition: color 0.15s;
+  }
+
+  .read-more:hover { color: var(--accent-hover); }
+  .read-more::after { content: ' \2192'; }
+
+  .featured-right {
+    padding-left: 60px;
+    border-left: 1px solid var(--rule);
+  }
+
+  .sidebar-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 500;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .sidebar-post {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    cursor: pointer;
+  }
+
+  .sidebar-post:last-child { border-bottom: none; padding-bottom: 0; }
+  .sidebar-post .post-category { margin-bottom: 8px; transition: color 0.15s; }
+
+  .sidebar-post h3 {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.42;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 8px;
+    transition: color 0.15s;
+  }
+
+  .sidebar-post .card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .sidebar-post:hover .post-category { color: var(--accent-hover); }
+  .sidebar-post:hover h3 { color: var(--accent); }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 500;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .section-label span {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-weight: 300;
+  }
+
+  /* POST CATEGORY */
+  .post-category {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  /* POSTS GRID */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 48px;
+    margin-bottom: 60px;
+  }
+
+  .post-card { display: flex; flex-direction: column; position: relative; cursor: pointer; }
+  .post-card .post-category { margin-bottom: 10px; transition: color 0.15s; }
+
+  .post-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.38;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 10px;
+    transition: color 0.15s;
+  }
+
+  .post-card h3 em { font-style: italic; font-weight: 400; }
+
+  .post-card .card-excerpt {
+    font-size: 0.875rem;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    font-weight: 300;
+    flex: 1;
+    transition: color 0.15s;
+  }
+
+  .post-card .post-meta {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .post-card .card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .post-card:hover .post-category { color: var(--accent-hover); }
+  .post-card:hover h3 { color: var(--accent); }
+  .post-card:hover .card-excerpt { color: var(--ink); }
+
+  /* CTA */
+  .cta-section {
+    background: var(--bg-alt);
+    border: 1px solid var(--rule);
+    padding: 52px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .cta-text .cta-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .cta-text h3 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.3rem, 2vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  .cta-text h3 em { font-style: italic; font-weight: 400; }
+
+  .cta-text p {
+    font-size: 0.9rem;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .cta-form { display: flex; flex-direction: column; gap: 10px; }
+
+  .cta-form input,
+  .cta-form select {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+  }
+
+  .cta-form input::placeholder { color: var(--ink-light); }
+  .cta-form input:focus, .cta-form select:focus { border-color: var(--ink-mid); }
+  .cta-form select { cursor: pointer; color: var(--ink-light); }
+  .cta-form select.filled { color: var(--ink); }
+
+  .cta-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    padding: 13px 20px;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 4px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .cta-btn:hover { background: var(--accent-hover); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 36px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-brand {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: var(--ink); }
+
+  .footer-copy {
+    width: 100%;
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    margin-top: 8px;
+    font-weight: 300;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .header-inner, .page-header, .main-wrap, footer { padding-left: 24px; padding-right: 24px; }
+    .filter-inner { padding: 0 24px; }
+    .featured-post { grid-template-columns: 1fr; }
+    .featured-left { padding-right: 0; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+    .featured-right { padding-left: 0; border-left: none; padding-top: 8px; }
+    .posts-grid { grid-template-columns: 1fr 1fr; gap: 32px 36px; }
+    .cta-section { grid-template-columns: 1fr; padding: 40px 32px; gap: 36px; }
+  }
+
+  @media (max-width: 600px) {
+    .posts-grid { grid-template-columns: 1fr; }
+    .header-nav { display: none; }
+    .cta-section { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-name">Open Strings, Open to Your Practice</a>
+    <ul class="header-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="blog.html">Writing</a></li>
+      <li><a href="#subscribe" class="nav-cta">Begin here &thinsp;&rarr;</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="page-header-label">Open Strings Blog</div>
+  <h1>Writing on improvisation,<br>mindfulness & musical freedom</h1>
+  <p>For string players navigating the intersection of classical training, spontaneous expression, and contemplative practice.</p>
+</div>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Improvisation</button>
+    <button class="filter-btn">Mindfulness</button>
+    <button class="filter-btn">Performance Anxiety</button>
+    <button class="filter-btn">Technique & Practice</button>
+    <button class="filter-btn">Flow State</button>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+  <div class="section-label">
+    Start here
+    <span>Quick reads · 3–7 min</span>
+  </div>
+
+  <div class="posts-grid" style="margin-bottom: 48px;">
+
+    <article class="post-card" data-category="performance-anxiety">
+      <div class="post-category">Performance Anxiety</div>
+      <a href="mpa-research.html" class="card-link" aria-label="Read article"></a>
+      <h3>Music Performance Anxiety in String Players: What the Research Actually Says</h3>
+      <p class="card-excerpt">MPA affects up to 70% of classical musicians — here's what the research says and what actually works for string players.</p>
+      <div class="post-meta"><span>3 min read</span><span class="sep">·</span><span>Psychology</span></div>
+    </article>
+
+    <article class="post-card" data-category="mindfulness">
+      <div class="post-category">Music & Meditation</div>
+      <a href="music-as-meditation.html" class="card-link" aria-label="Read article"></a>
+      <h3>Music as Meditation: A Practical Guide for <em>Instrumentalists</em></h3>
+      <p class="card-excerpt">How to use your daily practice as a mindfulness for musicians discipline — no cushion, no detour from your instrument required.</p>
+      <div class="post-meta"><span>5 min read</span><span class="sep">·</span><span>Mindfulness</span></div>
+    </article>
+
+    <article class="post-card" data-category="improvisation">
+      <div class="post-category">Improvisation</div>
+      <a href="harmony-gap.html" class="card-link" aria-label="Read article"></a>
+      <h3>The Harmony Gap: Why String Players Struggle with Chord Changes (And the Shortcut That Works)</h3>
+      <p class="card-excerpt">Classically trained violinists and cellists hit the same wall with chord changes — here's the left-hand shortcut that fixes it.</p>
+      <div class="post-meta"><span>7 min read</span><span class="sep">·</span><span>Ear Training</span></div>
+    </article>
+
+  </div>
+
+  <div class="featured-post" data-category="improvisation">
+    <div class="featured-left">
+      <div class="post-category">Improvisation</div>
+      <a href="afraid-to-improvise.html" class="card-link" aria-label="Read article"></a>
+      <h2>Why Classically Trained String Players Are <em>Afraid</em> to Improvise — And How to Finally Break Free</h2>
+      <p class="featured-excerpt">You spent years mastering the dots on the page. Now someone says "just play something" and your bow arm freezes. You're not broken. You've been trained into a very specific kind of musical fear — and it has a name, a cause, and a cure.</p>
+      <div class="post-meta">
+        <span>12 min read</span>
+        <span class="sep">·</span>
+        <span>Psychology</span>
+      </div>
+      <a href="afraid-to-improvise.html" class="read-more">Read the essay</a>
+    </div>
+
+    <div class="featured-right">
+      <div class="sidebar-label">Also in this issue</div>
+
+      <div class="sidebar-post">
+        <div class="post-category">Mindfulness & Flow</div>
+        <a href="flow-state.html" class="card-link" aria-label="Read article"></a>
+      <h3>Flow State for String Players: How Mindfulness Unlocks the Zone You've Been Chasing</h3>
+        <div class="post-meta"><span>13 min read</span></div>
+      </div>
+
+      <div class="sidebar-post">
+        <div class="post-category">Performance Anxiety</div>
+        <a href="perfectionism-trap.html" class="card-link" aria-label="Read article"></a>
+      <h3>The Perfectionism Trap: How Classical Training Creates the Exact Mindset That Kills Improvisation</h3>
+        <div class="post-meta"><span>10 min read</span></div>
+      </div>
+
+      <div class="sidebar-post">
+        <div class="post-category">Improvisation</div>
+        <a href="afraid-to-improvise.html" class="card-link" aria-label="Read article"></a>
+      <h3>Free Improvisation for Classical String Players: A Complete Beginner's Roadmap</h3>
+        <div class="post-meta"><span>15 min read</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">
+    All articles
+    <span>11 posts · Updated March 2026</span>
+  </div>
+
+  <div class="posts-grid">
+
+    <article class="post-card" data-category="flow-state mindfulness">
+      <div class="post-category">Mindfulness & Flow</div>
+      <a href="flow-state.html" class="card-link" aria-label="Read article"></a>
+      <h3>Flow State for String Players: How Mindfulness Unlocks the Zone You've Been Chasing</h3>
+      <p class="card-excerpt">Flow isn't luck. Csikszentmihalyi's research on optimal experience maps almost perfectly onto what improvisers and meditators describe as "the zone." String players who combine both practices access it more reliably.</p>
+      <div class="post-meta"><span>13 min read</span><span class="sep">·</span><span>Flow State</span></div>
+    </article>
+
+    <article class="post-card" data-category="mindfulness">
+      <div class="post-category">Mindfulness</div>
+      <a href="8-week-mindfulness.html" class="card-link" aria-label="Read article"></a>
+      <h3>8-Week Mindfulness for Musicians: What Conservatoire Research Found</h3>
+      <p class="card-excerpt">A landmark study at the Guildhall School of Music adapted MBSR for string and voice students. The results reveal how meditation practice doesn't just calm you down — it makes you play better.</p>
+      <div class="post-meta"><span>8 min read</span><span class="sep">·</span><span>Research</span></div>
+    </article>
+
+    <article class="post-card" data-category="performance-anxiety">
+      <div class="post-category">Performance Anxiety</div>
+      <a href="perfectionism-trap.html" class="card-link" aria-label="Read article"></a>
+      <h3>The Perfectionism Trap: How Classical Training Creates the Exact Mindset That Kills Improvisation</h3>
+      <p class="card-excerpt">The very habits that made you technically excellent are the ones blocking your creative freedom. Here's how to identify and rewire the perfectionist patterns that classical pedagogy instills.</p>
+      <div class="post-meta"><span>10 min read</span><span class="sep">·</span><span>Perfectionism</span></div>
+    </article>
+
+    <article class="post-card" data-category="technique">
+      <div class="post-category">Technique & Practice</div>
+      <a href="right-hand-revolution.html" class="card-link" aria-label="Read article"></a>
+      <h3>The Right Hand Revolution: Why Bowing Is the Missing Key to Expressive Improvisation</h3>
+      <p class="card-excerpt">Classical pedagogy obsesses over the left hand. But every great improvising string player will tell you: freedom lives in the bow. How weight, speed, and placement become the language of spontaneous expression.</p>
+      <div class="post-meta"><span>9 min read</span><span class="sep">·</span><span>Bow Technique</span></div>
+    </article>
+
+    <article class="post-card" data-category="mindfulness">
+      <div class="post-category">Music & Meditation</div>
+      <a href="mindful-practice.html" class="card-link" aria-label="Read article"></a>
+      <h3>Mindful Music Practice: How to Transform Your Daily Scales Into a <em>Contemplative</em> Ritual</h3>
+      <p class="card-excerpt">A concrete framework for bringing beginner's mind, body awareness, and non-judgment into your instrument work — so practice feels like more than repetition.</p>
+      <div class="post-meta"><span>11 min read</span><span class="sep">·</span><span>Ritual</span></div>
+    </article>
+
+    <article class="post-card" data-category="improvisation">
+      <div class="post-category">Improvisation</div>
+      <a href="afraid-to-improvise.html" class="card-link" aria-label="Read article"></a>
+      <h3>Free Improvisation for Classical String Players: A Complete Beginner's Roadmap</h3>
+      <p class="card-excerpt">No jazz theory. No chord changes. No experience required. Free improvisation is the fastest path to genuine musical spontaneity for classically trained players. Courage comes before confidence.</p>
+      <div class="post-meta"><span>15 min read</span><span class="sep">·</span><span>Creative Freedom</span></div>
+    </article>
+
+    <article class="post-card" data-category="performance-anxiety mindfulness">
+      <div class="post-category">Performance Anxiety · Mindfulness</div>
+      <a href="wellness-toolkit.html" class="card-link" aria-label="Read article"></a>
+      <h3>Yoga, Breathwork & Alexander Technique for String Players: The Complete Wellness Toolkit</h3>
+      <p class="card-excerpt">Body-based practices are the fastest way to interrupt the anxiety-tension cycle. Feldenkrais, Alexander Technique, yoga for musicians — what the research says and how to start.</p>
+      <div class="post-meta"><span>9 min read</span><span class="sep">·</span><span>Wellness</span></div>
+    </article>
+
+    <article class="post-card" data-category="technique">
+      <div class="post-category">Technique &amp; Practice</div>
+      <a href="vibrato-spectrum.html" class="card-link" aria-label="Read article"></a>
+      <h3>The Vibrato Spectrum: How to NOT Sound Like a Violinist</h3>
+      <p class="card-excerpt">Use your left hand the way a jazz singer uses their voice — from straight tone to wide slow vibrato to microtonal color and beyond. Most classical training never opens this door.</p>
+      <div class="post-meta"><span>3 min read</span><span class="sep">·</span><span>Tone Color</span></div>
+    </article>
+
+  </div>
+
+  <div class="cta-section" id="subscribe">
+    <div class="cta-text">
+      <div class="cta-label">Stay in touch</div>
+      <h3>Weekly notes on improvisation, <em>mindfulness</em> & the art of playing freely</h3>
+      <p>For string players who want to go beyond the dots. Practical tools, research-backed insights, and a community of musicians building a more expressive, embodied relationship with their instrument.</p>
+    </div>
+    <div class="cta-form">
+      <input type="text" placeholder="Your name">
+      <input type="email" placeholder="Email address">
+      <select>
+        <option value="" disabled selected>Your instrument</option>
+        <option>Violin</option>
+        <option>Viola</option>
+        <option>Cello</option>
+        <option>Double Bass</option>
+        <option>Multiple instruments</option>
+      </select>
+      <button class="cta-btn">Subscribe — it's free</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Open Strings Blog</div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">All Articles</a>
+      <a href="#">Resources</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Open Strings · Music, mindfulness & improvisation for string players</div>
+  </div>
+</footer>
+
+<script>
+  const filterMap = {
+    'Improvisation': 'improvisation',
+    'Mindfulness': 'mindfulness',
+    'Performance Anxiety': 'performance-anxiety',
+    'Technique & Practice': 'technique',
+    'Flow State': 'flow-state'
+  };
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const selected = filterMap[this.textContent.trim()];
+
+      // Filter post cards
+      document.querySelectorAll('.post-card').forEach(card => {
+        if (!selected) {
+          card.style.display = '';
+        } else {
+          const cats = (card.dataset.category || '').split(' ');
+          card.style.display = cats.includes(selected) ? '' : 'none';
+        }
+      });
+
+      // Show/hide featured post
+      const featured = document.querySelector('.featured-post');
+      if (featured) {
+        const cats = (featured.dataset.category || '').split(' ');
+        featured.style.display = (!selected || cats.includes(selected)) ? '' : 'none';
+      }
+
+      // Show/hide section labels based on whether their grid has visible cards
+      document.querySelectorAll('.posts-grid').forEach(grid => {
+        const hasVisible = [...grid.querySelectorAll('.post-card')].some(c => c.style.display !== 'none');
+        grid.style.display = hasVisible ? '' : 'none';
+        const prev = grid.previousElementSibling;
+        if (prev && prev.classList.contains('section-label')) {
+          prev.style.display = hasVisible ? '' : 'none';
+        }
+      });
+    });
+  });
+
+  document.querySelector('.cta-form select').addEventListener('change', function() {
+    this.classList.add('filled');
+  });
+</script>
+
+</body>
+</html>
