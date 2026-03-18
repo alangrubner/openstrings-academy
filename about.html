@@ -352,7 +352,7 @@
       margin-bottom: 1rem;
     }
     
-    #play-pause-btn, #video-play-pause-btn {
+    #play-pause-btn, #video-play-pause-btn, #video-play-pause-btn-2 {
       flex-shrink: 0;
       width: 48px;
       height: 48px;
@@ -366,11 +366,11 @@
       transition: background 0.2s, border-color 0.2s;
     }
     
-    #play-pause-btn:hover, #video-play-pause-btn:hover {
+    #play-pause-btn:hover, #video-play-pause-btn:hover, #video-play-pause-btn-2:hover {
       background: rgba(139, 26, 43, 0.05);
     }
     
-    #play-pause-btn svg, #video-play-pause-btn svg {
+    #play-pause-btn svg, #video-play-pause-btn svg, #video-play-pause-btn-2 svg {
       width: 20px;
       height: 20px;
       fill: var(--accent);
@@ -408,7 +408,7 @@
     }
     
     /* ── Video Player ── */
-    #video-player {
+    #video-player, #video-player-2 {
       width: 100%;
       border-radius: 4px;
       background: #000;
@@ -640,12 +640,8 @@
         video.play();
         videoPlayIcon.style.display = 'none';
         videoPauseIcon.style.display = 'block';
-        // Pause audio if playing
-        if (!audio.paused) {
-          audio.pause();
-          playIcon.style.display = 'block';
-          pauseIcon.style.display = 'none';
-        }
+        if (!audio.paused) { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
+        if (video2 && !video2.paused) { video2.pause(); videoPlayIcon2.style.display = 'block'; videoPauseIcon2.style.display = 'none'; }
       } else {
         video.pause();
         videoPlayIcon.style.display = 'block';
@@ -696,16 +692,6 @@
       }
     });
 
-    // Pause video2 when other players start
-    function toggleVideo(override) {
-      if (video.paused) {
-        video.play(); videoPlayIcon.style.display = 'none'; videoPauseIcon.style.display = 'block';
-        if (!audio.paused) { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
-        if (!video2.paused) { video2.pause(); videoPlayIcon2.style.display = 'block'; videoPauseIcon2.style.display = 'none'; }
-      } else {
-        video.pause(); videoPlayIcon.style.display = 'block'; videoPauseIcon.style.display = 'none';
-      }
-    }
   </script>
 </body>
 </html>
