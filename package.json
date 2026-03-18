@@ -1,0 +1,7 @@
+{
+  "name": "openstrings-academy",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "netlify deploy --prod --dir=."
+  }
+}

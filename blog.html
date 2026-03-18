@@ -6,7 +6,7 @@
 <title>Open Strings Blog | Music, Mindfulness & Improvisation for String Players</title>
 <meta name="description" content="Deep resources for string players learning to improvise freely, reduce performance anxiety, and cultivate a mindful music practice. Violin, viola, cello, bass.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #FAFAF8;
@@ -23,7 +23,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     background: var(--bg);
     color: var(--ink);
     font-size: 16px;
@@ -50,7 +50,7 @@
   }
 
   .site-name {
-    font-family: 'Lora', serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--ink);
@@ -94,7 +94,7 @@
   }
 
   .page-header h1 {
-    font-family: 'Lora', serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: clamp(1.9rem, 3.5vw, 2.8rem);
     font-weight: 600;
     line-height: 1.18;
@@ -136,7 +136,7 @@
   .filter-btn {
     background: none;
     border: none;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.8rem;
     padding: 14px 18px;
     cursor: pointer;
@@ -171,7 +171,7 @@
   .featured-left .post-category { margin-bottom: 16px; transition: color 0.15s; }
 
   .featured-left h2 {
-    font-family: 'Lora', serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: clamp(1.5rem, 2.4vw, 2rem);
     font-weight: 600;
     line-height: 1.28;
@@ -198,9 +198,10 @@
     z-index: 1;
   }
 
-  .featured-left:hover .post-category { color: var(--accent-hover); }
+  .featured-left:hover .post-category { color: var(--accent); }
   .featured-left:hover h2 { color: var(--accent); }
-  .featured-left:hover .featured-excerpt { color: var(--ink); }
+  .featured-left:hover .featured-excerpt { color: var(--accent); }
+  .featured-left:hover .post-meta { color: var(--accent); }
 
   .post-meta {
     display: flex;
@@ -208,6 +209,7 @@
     gap: 12px;
     font-size: 0.78rem;
     color: var(--ink-light);
+    transition: color 0.15s;
   }
 
   .post-meta .sep { opacity: 0.4; }
@@ -251,7 +253,7 @@
   .sidebar-post .post-category { margin-bottom: 8px; transition: color 0.15s; }
 
   .sidebar-post h3 {
-    font-family: 'Lora', serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
     line-height: 1.42;
@@ -267,8 +269,9 @@
     z-index: 1;
   }
 
-  .sidebar-post:hover .post-category { color: var(--accent-hover); }
+  .sidebar-post:hover .post-category { color: var(--accent); }
   .sidebar-post:hover h3 { color: var(--accent); }
+  .sidebar-post:hover .post-meta { color: var(--accent); }
 
   /* SECTION LABEL */
   .section-label {
@@ -313,7 +316,7 @@
   .post-card .post-category { margin-bottom: 10px; transition: color 0.15s; }
 
   .post-card h3 {
-    font-family: 'Lora', serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 1.05rem;
     font-weight: 500;
     line-height: 1.38;
@@ -346,9 +349,10 @@
     z-index: 1;
   }
 
-  .post-card:hover .post-category { color: var(--accent-hover); }
+  .post-card:hover .post-category { color: var(--accent); }
   .post-card:hover h3 { color: var(--accent); }
-  .post-card:hover .card-excerpt { color: var(--ink); }
+  .post-card:hover .card-excerpt { color: var(--accent); }
+  .post-card:hover .post-meta { color: var(--accent); }
 
   /* CTA */
   .cta-section {
@@ -371,7 +375,7 @@
   }
 
   .cta-text h3 {
-    font-family: 'Lora', serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: clamp(1.3rem, 2vw, 1.75rem);
     font-weight: 600;
     line-height: 1.3;
@@ -396,7 +400,7 @@
     background: var(--bg);
     border: 1px solid var(--rule);
     color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.88rem;
     padding: 11px 14px;
     outline: none;
@@ -416,7 +420,7 @@
     background: var(--accent);
     color: #fff;
     border: none;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.08em;
     font-weight: 500;
@@ -447,7 +451,7 @@
   }
 
   .footer-brand {
-    font-family: 'Lora', serif;
+    font-family: 'Outfit', system-ui, sans-serif;
     font-size: 0.95rem;
     color: var(--ink);
     font-weight: 500;
@@ -497,9 +501,9 @@
     <a href="/" class="site-name">Open Strings, Open to Your Practice</a>
     <ul class="header-nav">
       <li><a href="about.html">About</a></li>
-      <li><a href="#">Courses</a></li>
+      <li><a href="index.html#courses">Courses</a></li>
       <li><a href="blog.html">Writing</a></li>
-      <li><a href="#subscribe" class="nav-cta">Begin here &thinsp;&rarr;</a></li>
+      <li><a href="#subscribe" class="nav-cta">Path Opens Here →</a></li>
     </ul>
   </div>
 </header>
@@ -559,15 +563,15 @@
   <div class="featured-post" data-category="improvisation">
     <div class="featured-left">
       <div class="post-category">Improvisation</div>
-      <a href="afraid-to-improvise.html" class="card-link" aria-label="Read article"></a>
-      <h2>Why Classically Trained String Players Are <em>Afraid</em> to Improvise — And How to Finally Break Free</h2>
-      <p class="featured-excerpt">You spent years mastering the dots on the page. Now someone says "just play something" and your bow arm freezes. You're not broken. You've been trained into a very specific kind of musical fear — and it has a name, a cause, and a cure.</p>
+      <a href="the-map-is-not-the-territory.html" class="card-link" aria-label="Read article"></a>
+      <h2>The Map Is Not<br>the Territory</h2>
+      <p class="featured-excerpt">Alan Watts said "don't eat the menu, eat the food." Written music is a map. The sound — vibration, frequency, resonance — is the territory. A case for playing from the body, not the page.</p>
       <div class="post-meta">
-        <span>12 min read</span>
+        <span>7 min read</span>
         <span class="sep">·</span>
-        <span>Psychology</span>
+        <span>Embodiment</span>
       </div>
-      <a href="afraid-to-improvise.html" class="read-more">Read the essay</a>
+      <a href="the-map-is-not-the-territory.html" class="read-more">Read the essay</a>
     </div>
 
     <div class="featured-right">
@@ -675,10 +679,10 @@
       <h3>Weekly notes on improvisation, <em>mindfulness</em> & the art of playing freely</h3>
       <p>For string players who want to go beyond the dots. Practical tools, research-backed insights, and a community of musicians building a more expressive, embodied relationship with their instrument.</p>
     </div>
-    <div class="cta-form">
-      <input type="text" placeholder="Your name">
-      <input type="email" placeholder="Email address">
-      <select>
+    <div class="cta-form" id="blogOptinForm">
+      <input type="text" id="blogName" placeholder="Your name">
+      <input type="email" id="blogEmail" placeholder="Email address">
+      <select id="blogInstrument">
         <option value="" disabled selected>Your instrument</option>
         <option>Violin</option>
         <option>Viola</option>
@@ -686,8 +690,11 @@
         <option>Double Bass</option>
         <option>Multiple instruments</option>
       </select>
-      <button class="cta-btn">Subscribe — it's free</button>
+      <button class="cta-btn" id="blogSubmitBtn">Subscribe — it's free</button>
     </div>
+    <p id="blogConfirmation" style="display:none; font-style:italic; color:#4a4a46; margin-top:1.25rem;">
+      You're in. Check your inbox — the guide is on its way.
+    </p>
   </div>
 
 </div>
@@ -701,7 +708,7 @@
       <a href="#">Resources</a>
       <a href="#">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 Open Strings · Music, mindfulness & improvisation for string players</div>
+    <div class="footer-copy">© 2026 Open Strings · Music, mindfulness &amp; improvisation for string players</div>
   </div>
 </footer>
 
@@ -752,6 +759,44 @@
 
   document.querySelector('.cta-form select').addEventListener('change', function() {
     this.classList.add('filled');
+  });
+
+  // Blog subscribe form — Kit
+  document.getElementById('blogSubmitBtn').addEventListener('click', function() {
+    var btn = this;
+    var email = document.getElementById('blogEmail').value.trim();
+    var name = document.getElementById('blogName').value.trim();
+    var instrument = document.getElementById('blogInstrument').value;
+    if (!email) { document.getElementById('blogEmail').focus(); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Subscribing…';
+
+    fetch('https://api.convertkit.com/v3/forms/9218311/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify({
+        api_key: 'bcHR_q8mKIuSTXdG0h1zMw',
+        email: email,
+        first_name: name,
+        fields: { instrument: instrument }
+      })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.subscription || data.subscriber) {
+        document.getElementById('blogOptinForm').style.display = 'none';
+        document.getElementById('blogConfirmation').style.display = 'block';
+      } else {
+        throw new Error(data.message || JSON.stringify(data));
+      }
+    })
+    .catch(function(err) {
+      console.error('Kit error:', err);
+      btn.disabled = false;
+      btn.textContent = 'Subscribe — it\'s free';
+      alert('Something went wrong — please try again.');
+    });
   });
 </script>
 

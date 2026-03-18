@@ -84,6 +84,7 @@
       letter-spacing: 0.04em;
       color: var(--accent) !important;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     /* ── Hero photo ── */
@@ -107,17 +108,14 @@
 
     /* ── Main content wrapper ── */
     main {
-      max-width: 1060px;
-      margin: 0 auto 0 8%;
+      max-width: 720px;
+      margin: 0 auto;
       padding: 0 1.5rem 6rem;
     }
 
-    /* ── Two-column: narrative + bio ── */
+    /* ── Single column ── */
     .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 5rem;
-      align-items: start;
+      display: block;
     }
 
     /* ── Section 1: First-person narrative ── */
@@ -127,18 +125,28 @@
 
     .section-label {
       font-family: var(--sans);
-      font-size: 0.72rem;
+      font-size: 1.25rem;
       font-weight: 400;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: 2rem;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
     }
-    .section-narrative p {
-      font-size: 1.1rem;
+    .section-narrative p:not(.section-label) {
+      font-size: 1rem;
       line-height: 1.85;
       color: var(--ink);
       margin-bottom: 1.5rem;
+    }
+
+    .section-narrative p.section-label {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: inherit;
+      margin-bottom: 1.75rem;
     }
 
     .section-narrative p:last-child { margin-bottom: 0; }
@@ -156,23 +164,22 @@
     }
 
     .section-bio h2 {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--ink-light);
+      font-family: var(--sans);
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
       margin-bottom: 1.75rem;
-      letter-spacing: 0.01em;
-      margin-left: -1.5rem;
-      padding-left: 1.5rem;
-      border-left: 2px solid var(--rule);
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
     }
 
     .section-bio p {
       font-size: 1rem;
-      line-height: 1.8;
+      line-height: 1.85;
       color: var(--ink);
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.5rem;
     }
 
     .section-bio p:last-child { margin-bottom: 0; }
@@ -183,9 +190,6 @@
       border-radius: 2px;
       padding: 2.5rem 2rem;
       margin-top: 3.5rem;
-      /* break out of the narrow column slightly */
-      margin-left: -1.5rem;
-      margin-right: -1.5rem;
     }
 
     .press-heading {
@@ -248,30 +252,51 @@
     footer a:hover { color: var(--accent); }
 
     /* ── Responsive ── */
+    @media (max-width: 1280px) {
+      nav { padding: 1.25rem 1.5rem; gap: 1rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-logo { font-size: 0.88rem; }
+    }
+
     @media (max-width: 860px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-      main {
-        margin-left: 5%;
-      }
+      .hero-photo { height: 380px; }
     }
 
     @media (max-width: 600px) {
-      nav { padding: 1.25rem 1.25rem; }
-      .nav-links { gap: 1.25rem; }
+      html { font-size: 16px; }
 
+      /* Nav: stack logo above links */
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-photo { height: 260px; }
       .hero-matte::after { display: none; }
 
-      main { margin-left: 0; }
+      main {
+        margin-left: 0;
+        padding: 0 1.25rem 4rem;
+      }
 
-      .section-narrative { padding-top: 2.5rem; }
-      .section-bio { padding-top: 2rem; }
+      .section-narrative { padding-top: 2rem; }
+      .section-bio { padding-top: 1.75rem; }
+
+      .section-label,
+      .section-narrative p.section-label { font-size: 1.1rem; }
+      .section-bio h2 { font-size: 1.1rem; }
 
       .section-press {
         margin-left: -1.25rem;
         margin-right: -1.25rem;
         padding: 2rem 1.25rem;
+        margin-top: 2rem;
       }
 
       .press-grid {
@@ -281,13 +306,134 @@
 
       .press-block.full { grid-column: 1; }
     }
+
+    @media (max-width: 400px) {
+      .hero-photo { height: 220px; }
+      .nav-links { gap: 0.75rem; }
+      .nav-links a { font-size: 0.72rem; }
+      .nav-cta { font-size: 0.72rem; }
+    }
+
+    /* ── Audio Player ── */
+    #audio-player { display: none; }
+    
+    .players-wrapper {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      align-items: stretch;
+    }
+
+    .audio-caption {
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--ink-light);
+      line-height: 1.65;
+      margin-top: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .player-section {
+      flex: 1;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .player-section .player-controls {
+      margin-top: auto;
+    }
+    
+    .player-controls {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    #play-pause-btn, #video-play-pause-btn {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      background: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    
+    #play-pause-btn:hover, #video-play-pause-btn:hover {
+      background: rgba(139, 26, 43, 0.05);
+    }
+    
+    #play-pause-btn svg, #video-play-pause-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--accent);
+    }
+    
+    .progress-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .progress-bar {
+      height: 2px;
+      background: var(--rule);
+      border-radius: 1px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #d4708f);
+      transition: width 0.1s linear;
+    }
+    
+    .progress-label {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-align: right;
+    }
+    
+    /* ── Video Player ── */
+    #video-player {
+      width: 100%;
+      border-radius: 4px;
+      background: #000;
+    }
+    
+    .player-thumbnail {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      display: block;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    
+    .player-thumbnail:hover {
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body>
 
   <!-- ── Navigation ── -->
   <nav>
-    <a class="nav-logo" href="/">Open Strings</a>
+    <a class="nav-logo" href="/">Open Strings, Open to Your Practice</a>
     <ul class="nav-links">
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="index.html#courses">Courses</a></li>
@@ -306,22 +452,9 @@
 
     <div class="two-col">
 
-    <!-- ── Section 1: First-Person Narrative ── -->
-    <section class="section-narrative">
-      <p class="section-label">About</p>
-
-      <p>I came to music sideways. My formal training was in literature — contemporary American poetry, to be specific — and what I was learning there, without knowing it, was how to attend. To the line break. To the silence after the word. To what the poem was doing beneath what it was saying.</p>
-
-      <p>Music came next, and jazz after that. Berklee. Improvisation. And with improvisation came the confrontation that I suspect brings many players to a page like this one: the moment when technique runs out and something else is required. I didn't have a name for what that something was. I only knew I was afraid of it.</p>
-
-      <p>What changed wasn't a new method. It was a contemplative practice — IMS-lineage vipassana — that taught me to stay with what arose without flinching. The fear of the wrong note and the fear of impermanence turned out to be the same fear. And both yielded to the same practice.</p>
-
-      <p>I've performed at Carnegie Hall, toured with players across jazz, bluegrass, folk, and ambient music, scored films, and built a teaching practice over two decades. None of that is why I built Open Strings Academy. I built it because the crossing is real, and it's available to you at whatever level you're starting from.</p>
-    </section>
-
-    <!-- ── Section 2: Condensed Third-Person Bio ── -->
+    <!-- ── Section 1: Condensed Third-Person Bio ── -->
     <section class="section-bio">
-      <h2>Background</h2>
+      <h2 class="section-label">Background</h2>
 
       <p>Alan Grubner graduated summa cum laude from Dartmouth College with a B.A. in English, with a focus on contemporary American poetry. Without prior conservatory training, he was awarded a Graduate Assistantship Scholarship as the first violinist accepted into Berklee College of Music's Masters in Jazz Studies program.</p>
 
@@ -334,9 +467,63 @@
       <p>Alan's work at Open Strings Academy draws together his parallel lives as performer, educator, and IMS-lineage vipassana practitioner. He teaches from the conviction that the musical path and the contemplative path are, in the end, one path.</p>
     </section>
 
+    <!-- ── Section 2: First-Person Narrative ── -->
+    <section class="section-narrative">
+      <p class="section-label">Winding Path</p>
+
+      <p>I came to music sideways. My formal training was in literature — contemporary American poetry, to be specific — and what I was learning there, without knowing it, was how to attend. To the line break. To the silence after the word. To what the poem was doing beneath what it was saying.</p>
+
+      <p>Music came next, and jazz after that. Berklee. Improvisation. And with improvisation came the confrontation that I suspect brings many players to a page like this one: the moment when technique runs out and something else is required. I didn't have a name for what that something was. I only knew I was afraid of it.</p>
+
+      <p>What changed wasn't a new method. It was a contemplative practice — IMS-lineage vipassana — that taught me to stay with what arose without flinching. The fear of the wrong note and the fear of impermanence turned out to be the same fear. And both yielded to the same practice.</p>
+
+      <p>I've performed at Carnegie Hall, toured with players across jazz, bluegrass, folk, and ambient music, scored films, and built a teaching practice over two decades. None of that is why I built Open Strings Academy. I built it because the crossing is real, and it's available to you at whatever level you're starting from.</p>
+    </section>
+
     </div><!-- /.two-col -->
 
     <hr />
+
+    <!-- ── Media Players ── -->
+    <div class="players-wrapper">
+      <!-- Audio Player -->
+      <div class="player-section">
+        <img src="/assets/photo/alan_site_photo_thumb_compressed.png" alt="Audio preview" class="player-thumbnail">
+        <p class="audio-caption">Excerpt from <em>Convergence</em>, the upcoming release from Alan &amp; Joshua Geisler (guitar / ambient cloud cover) for exclusive release on Spacious.fm</p>
+        <div class="player-controls">
+          <audio id="audio-player" src="/assets/audio/01_convergence_compressed.m4a" loop preload="auto"></audio>
+          <button id="play-pause-btn">
+            <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="pause-icon" viewBox="0 0 24 24" style="display:none;"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+          </button>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="audio-progress-fill"></div>
+            </div>
+            <div class="progress-label">AUDIO PREVIEW</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Player -->
+      <div class="player-section">
+        <video id="video-player" poster="/assets/photo/site_vid_thumb.jpg" preload="auto" loop>
+          <source src="/assets/video/alan_solo_site_topanga_comp.mp4" type="video/mp4">
+        </video>
+        <div class="player-controls">
+          <button id="video-play-pause-btn">
+            <svg id="video-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="video-pause-icon" viewBox="0 0 24 24" style="display:none;"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+          </button>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="video-progress-fill"></div>
+            </div>
+            <div class="progress-label">VIDEO PREVIEW</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ── Section 3: Press & Appearances ── -->
     <section class="section-press">
@@ -376,8 +563,84 @@
 
   <!-- ── Footer ── -->
   <footer>
-    © 2025 · The Interval · <a href="https://instagram.com/theinterval">@theinterval</a> · Where classical training meets creative freedom.
+    © 2026 Open Strings · Music, mindfulness &amp; improvisation for string players
   </footer>
 
+  <script>
+    // Audio Player
+    const audio = document.getElementById('audio-player');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    const audioProgressFill = document.getElementById('audio-progress-fill');
+    const audioThumbnail = document.querySelector('.player-section:nth-child(1) .player-thumbnail');
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+        // Pause video if playing
+        if (!video.paused) {
+          video.pause();
+          videoPlayIcon.style.display = 'block';
+          videoPauseIcon.style.display = 'none';
+        }
+      } else {
+        audio.pause();
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+      }
+    }
+
+    playPauseBtn.addEventListener('click', toggleAudio);
+    audioThumbnail.addEventListener('click', toggleAudio);
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        audioProgressFill.style.width = progress + '%';
+      }
+    });
+
+    // Video Player
+    const video = document.getElementById('video-player');
+    const videoPlayPauseBtn = document.getElementById('video-play-pause-btn');
+    const videoPlayIcon = document.getElementById('video-play-icon');
+    const videoPauseIcon = document.getElementById('video-pause-icon');
+    const videoProgressFill = document.getElementById('video-progress-fill');
+    const videoThumbnail = document.getElementById('video-player');
+
+    // Hide default video controls
+    video.removeAttribute('controls');
+
+    function toggleVideo() {
+      if (video.paused) {
+        video.play();
+        videoPlayIcon.style.display = 'none';
+        videoPauseIcon.style.display = 'block';
+        // Pause audio if playing
+        if (!audio.paused) {
+          audio.pause();
+          playIcon.style.display = 'block';
+          pauseIcon.style.display = 'none';
+        }
+      } else {
+        video.pause();
+        videoPlayIcon.style.display = 'block';
+        videoPauseIcon.style.display = 'none';
+      }
+    }
+
+    videoPlayPauseBtn.addEventListener('click', toggleVideo);
+    videoThumbnail.addEventListener('click', toggleVideo);
+
+    video.addEventListener('timeupdate', () => {
+      if (video.duration) {
+        const progress = (video.currentTime / video.duration) * 100;
+        videoProgressFill.style.width = progress + '%';
+      }
+    });
+  </script>
 </body>
 </html>

@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Open Strings — Where Classical Training Meets Creative Freedom</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     /* ── Variables ────────────────────────────────────────── */
     :root {
-      --bg:         #0D0C0A;
-      --text:       #ECE7DD;
-      --text-dim:   #B0A89E;
-      --text-ghost: #3E3A35;
-      --accent:     #B55735;
-      --rule:       rgba(236, 231, 221, 0.09);
+      --bg:         #faf9f6;
+      --text:       #1a1a18;
+      --text-dim:   #4a4a46;
+      --text-ghost: #9a9893;
+      --accent:     #8B1A2B;
+      --rule:       #d8d4cc;
     }
 
     /* ── Reset ────────────────────────────────────────────── */
@@ -31,7 +31,7 @@
     }
 
     body {
-      font-family: 'Lora', Georgia, serif;
+      font-family: 'Outfit', Georgia, serif;
       font-weight: 400;
       line-height: 1.8;
       background-color: var(--bg);
@@ -39,17 +39,6 @@
       overflow-x: hidden;
     }
 
-    /* Grain overlay */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.045;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='500' height='500' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      background-size: 200px 200px;
-    }
 
     /* ── Layout ───────────────────────────────────────────── */
     .section {
@@ -95,7 +84,7 @@
 
     /* ── Typography ───────────────────────────────────────── */
     h1, h2 {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Outfit', Georgia, serif;
       font-weight: 400;
       color: var(--text);
     }
@@ -140,7 +129,7 @@
     /* ── Overline ─────────────────────────────────────────── */
     .overline {
       display: block;
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.875rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -160,8 +149,8 @@
       background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(236, 231, 221, 0.12) 15%,
-        rgba(236, 231, 221, 0.12) 85%,
+        rgba(26, 26, 24, 0.12) 15%,
+        rgba(26, 26, 24, 0.12) 85%,
         transparent 100%
       );
       margin: 2.75rem 0;
@@ -170,11 +159,10 @@
     /* ── CTA link ─────────────────────────────────────────── */
     .cta-link {
       display: inline-block;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 1.1875rem;
-      color: var(--text);
-      background: var(--accent);
+      color: #fff;
+      background: #b85565;
       text-decoration: none;
       padding: 15px 32px 16px;
       letter-spacing: 0.01em;
@@ -182,7 +170,7 @@
     }
 
     .cta-link:hover {
-      background: #C76540;
+      background: #6E1522;
       transform: translateY(-2px);
     }
 
@@ -198,7 +186,7 @@
     /* ── Section gradients (atmospheric, not decorative) ──── */
     .section--hero {
       background: radial-gradient(ellipse 110% 70% at 50% -15%,
-        rgba(181, 87, 53, 0.09) 0%,
+        rgba(139, 26, 43, 0.03) 0%,
         transparent 65%
       );
     }
@@ -214,20 +202,20 @@
       background: linear-gradient(
         180deg,
         transparent 0%,
-        rgba(181, 87, 53, 0.05) 100%
+        rgba(139, 26, 43, 0.02) 100%
       );
     }
 
     .section--authority {
       background: radial-gradient(ellipse 65% 55% at 28% 55%,
-        rgba(236, 231, 221, 0.028) 0%,
+        rgba(139, 26, 43, 0.015) 0%,
         transparent 65%
       );
     }
 
     .section--optin {
       background: radial-gradient(ellipse 85% 90% at 50% 115%,
-        rgba(181, 87, 53, 0.12) 0%,
+        rgba(139, 26, 43, 0.04) 0%,
         transparent 65%
       );
     }
@@ -263,7 +251,7 @@
     }
 
     .pull-quote {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Outfit', Georgia, serif;
       font-style: italic;
       font-size: clamp(1.375rem, 3.5vw, 2.125rem);
       font-weight: 400;
@@ -294,7 +282,7 @@
     }
 
     .guide-number {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.6875rem;
       color: var(--text-ghost);
       letter-spacing: 0.08em;
@@ -304,7 +292,7 @@
 
     .guide-title {
       display: block;
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -334,7 +322,7 @@
     }
 
     .credentials p {
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -379,10 +367,10 @@
     .optin-form input[type="email"] {
       width: 100%;
       padding: 16px 20px;
-      background: #181613;
+      background: #fff;
       color: var(--text);
-      border: 1px solid rgba(236, 231, 221, 0.22);
-      font-family: 'Lora', serif;
+      border: 1px solid var(--rule);
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 1.0625rem;
       font-style: italic;
       outline: none;
@@ -391,21 +379,20 @@
     }
 
     .optin-form input[type="email"]::placeholder {
-      color: #5A5550;
+      color: var(--text-ghost);
     }
 
     .optin-form input[type="email"]:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(181, 87, 53, 0.15);
+      box-shadow: 0 0 0 3px rgba(139, 26, 43, 0.10);
     }
 
     .btn-submit {
       align-self: flex-start;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 1.1875rem;
-      color: var(--text);
-      background: var(--accent);
+      color: #fff;
+      background: #b85565;
       border: none;
       padding: 15px 32px 16px;
       cursor: pointer;
@@ -415,7 +402,7 @@
     }
 
     .btn-submit:hover {
-      background: #C76540;
+      background: #6E1522;
       transform: translateY(-2px);
     }
 
@@ -425,7 +412,7 @@
 
     .optin-confirmation {
       display: none;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-style: italic;
       font-size: 1.125rem;
       color: var(--text-dim);
@@ -471,15 +458,15 @@
     }
 
     .site-nav.scrolled {
-      background: rgba(13, 12, 10, 0.94);
+      background: rgba(250, 249, 246, 0.95);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
     }
 
     .nav-brand {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.9375rem;
-      font-style: italic;
       color: var(--text);
       text-decoration: none;
       letter-spacing: 0.01em;
@@ -493,7 +480,7 @@
     }
 
     .nav-links a {
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.625rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -511,7 +498,7 @@
     }
 
     .nav-links .nav-cta:hover {
-      color: #C76540;
+      color: #6E1522;
     }
 
     /* ── EXTERNAL PULL QUOTE (left-border style) ──────────── */
@@ -529,7 +516,7 @@
     }
 
     .ext-quote blockquote {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-style: italic;
       font-size: clamp(1.25rem, 3vw, 1.875rem);
       font-weight: 400;
@@ -540,7 +527,7 @@
     }
 
     .ext-quote cite {
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -557,7 +544,7 @@
 
     .second-magnet-label {
       display: block;
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -574,7 +561,7 @@
 
     .cta-link--secondary {
       display: inline-block;
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -592,8 +579,8 @@
 
     /* ── COURSE PREVIEW ───────────────────────────────────── */
     .section--courses {
-      background: radial-gradient(ellipse 70% 60% at 50% 80%,
-        rgba(122, 138, 142, 0.04) 0%,
+      background: radial-gradient(ellipse 80% 60% at 50% 100%,
+        rgba(139, 26, 43, 0.035) 0%,
         transparent 65%
       );
     }
@@ -623,7 +610,7 @@
 
     .course-roman {
       display: block;
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -632,7 +619,7 @@
     }
 
     .course-card h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-style: italic;
       font-size: clamp(1.0625rem, 2.2vw, 1.3125rem);
       font-weight: 400;
@@ -650,7 +637,7 @@
     }
 
     .course-link {
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -721,7 +708,7 @@
 
     .artwork-caption-title {
       display: block;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-style: italic;
       font-size: 0.875rem;
       color: var(--text);
@@ -731,7 +718,7 @@
 
     .artwork-caption-meta {
       display: block;
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.575rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -745,7 +732,7 @@
     }
 
     .artwork-bridge p {
-      font-family: 'Lora', serif;
+      font-family: 'Outfit', system-ui, sans-serif;
       font-size: 0.75rem;
       font-style: italic;
       letter-spacing: 0.06em;
@@ -841,6 +828,7 @@
         padding-left: 1.25rem;
       }
     }
+
   </style>
 </head>
 <body>
@@ -903,42 +891,6 @@
       </div>
     </div>
   </section>
-
-  <hr class="rule">
-
-  <!-- ── ARTWORK ───────────────────────────────────────────── -->
-  <div class="section--artwork" aria-label="Works in conversation">
-    <div class="artwork-grid">
-
-      <div class="artwork-panel">
-        <img
-          src="kandinsky-improv28.jpg"
-          alt="Improvisation 28 (second version) by Wassily Kandinsky, 1912. Abstract expressionist oil painting in deep blues, blacks, and warm yellows."
-          loading="lazy"
-        >
-        <div class="artwork-caption">
-          <span class="artwork-caption-title">Improvisation 28 (second version)</span>
-          <span class="artwork-caption-meta">Wassily Kandinsky &nbsp;·&nbsp; 1912 &nbsp;·&nbsp; Oil on canvas &nbsp;·&nbsp; Public domain</span>
-        </div>
-      </div>
-
-      <div class="artwork-panel">
-        <img
-          src="af_klint_heart_dna.jpg"
-          alt="The Dove, No. 1 by Hilma af Klint, 1915. Abstract painting with a pink heart and spiral helix bisecting a circle, rainbow spectrum below."
-          loading="lazy"
-        >
-        <div class="artwork-caption">
-          <span class="artwork-caption-title">The Dove, No. 1</span>
-          <span class="artwork-caption-meta">Hilma af Klint &nbsp;·&nbsp; 1915 &nbsp;·&nbsp; Oil on canvas &nbsp;·&nbsp; Public domain</span>
-        </div>
-      </div>
-
-    </div>
-    <div class="artwork-bridge">
-      <p>Kandinsky believed color was a keyboard and the artist the hand that played it. Af Klint painted from interior listening, in silence, years before either of them had a name for what they were doing. Both understood that attention is the medium.</p>
-    </div>
-  </div>
 
   <hr class="rule">
 
@@ -1016,7 +968,7 @@
   <hr class="rule">
 
   <!-- ── COURSE PREVIEW ────────────────────────────────────── -->
-  <section class="section section--courses" aria-label="What we're building toward">
+  <section class="section section--courses" id="courses" aria-label="What we're building toward">
     <div class="inner">
       <span class="overline fade-in">What we're building toward</span>
       <h2 class="fade-in">Three crossings.<br><em>One practice.</em></h2>
@@ -1047,13 +999,6 @@
   </section>
 
   <hr class="rule">
-
-  <!-- ── LINEAGE NOTE ───────────────────────────────────────── -->
-  <div class="lineage-note fade-in" aria-label="Intellectual lineage">
-    <div class="inner">
-      <p>This work sits in conversation with Pauline Oliveros's Deep Listening practice, the IMS vipassana tradition, and the painters — Hilma af Klint, Agnes Martin, Mark Rothko — who understood that sustained attention is itself the art.</p>
-    </div>
-  </div>
 
   <hr class="rule">
 
@@ -1095,7 +1040,7 @@
   <!-- ── FOOTER ─────────────────────────────────────────────── -->
   <footer class="site-footer" aria-label="Footer">
     <div class="inner">
-      <p class="footer-text">© 2025 &nbsp;·&nbsp; The Interval &nbsp;·&nbsp; @theinterval &nbsp;·&nbsp; Where classical training meets creative freedom.</p>
+      <p class="footer-text">© 2026 Open Strings · Music, mindfulness &amp; improvisation for string players</p>
     </div>
   </footer>
 
@@ -1135,23 +1080,40 @@
       observer.observe(el);
     });
 
-    // Form submission — wire your ESP here
+    // Form submission — Kit v3 API
     document.getElementById('optinForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      var form = this;
+      var btn = form.querySelector('.btn-submit');
       var email = document.getElementById('email').value.trim();
       if (!email) return;
 
-      // ── Replace with your ESP API call ──────────────────────
-      // fetch('https://app.convertkit.com/forms/XXXX/subscriptions', {
-      //   method: 'POST',
-      //   body: JSON.stringify({ email_address: email }),
-      //   headers: { 'Content-Type': 'application/json' }
-      // });
-      // ────────────────────────────────────────────────────────
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
 
-      this.style.display = 'none';
-      document.querySelector('.section--optin .micro-copy').style.display = 'none';
-      document.getElementById('optinConfirmation').classList.add('visible');
+      fetch('https://api.convertkit.com/v3/forms/9218311/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({ api_key: 'bcHR_q8mKIuSTXdG0h1zMw', email: email })
+      })
+      .then(function(res) {
+        return res.json().then(function(data) {
+          console.log('Kit response:', JSON.stringify(data));
+          if (data.subscription || data.subscriber) {
+            form.style.display = 'none';
+            document.querySelector('.section--optin .micro-copy').style.display = 'none';
+            document.getElementById('optinConfirmation').classList.add('visible');
+          } else {
+            throw new Error(data.message || JSON.stringify(data));
+          }
+        });
+      })
+      .catch(function(err) {
+        console.error('Kit error:', err);
+        btn.disabled = false;
+        btn.textContent = 'Send me the guide \u2009\u2192';
+        alert('Something went wrong — please try again.');
+      });
     });
   </script>
 </body>
