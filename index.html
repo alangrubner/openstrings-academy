@@ -651,6 +651,84 @@
       opacity: 1;
     }
 
+    /* ── WAITLIST MODAL ──────────────────────────────────── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 24, 0.7);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-backdrop.is-open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--bg);
+      max-width: 480px;
+      width: 100%;
+      padding: 52px 48px 44px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.25rem;
+      color: var(--text-ghost);
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--text);
+    }
+
+    .modal-eyebrow {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-ghost);
+      margin-bottom: 1rem;
+    }
+
+    .modal h2 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .modal-subtext {
+      font-size: 0.875rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .modal-confirmation {
+      display: none;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      padding: 1rem 0;
+    }
+
+    .modal-confirmation.visible {
+      display: block;
+    }
+
     /* ── ARTWORK SECTION ─────────────────────────────────── */
     .section--artwork {
       padding-top: 0;
@@ -1044,6 +1122,29 @@
     </div>
   </footer>
 
+  <!-- ── WAITLIST MODAL ──────────────────────────────────────── -->
+  <div class="modal-backdrop" id="waitlistBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <p class="modal-eyebrow">Courses</p>
+      <h2 id="modalTitle">Join the waitlist.</h2>
+      <p class="modal-subtext">I'll reach out when enrollment opens.</p>
+      <form class="optin-form" id="waitlistForm" novalidate>
+        <label for="waitlistEmail" class="sr-only">Email address</label>
+        <input
+          type="email"
+          id="waitlistEmail"
+          name="email"
+          placeholder="your@email.com"
+          autocomplete="email"
+          required
+        >
+        <button type="submit" class="btn-submit">Join the waitlist &thinsp;&rarr;</button>
+      </form>
+      <p class="modal-confirmation" id="waitlistConfirmation">You're on the list. I'll be in touch.</p>
+    </div>
+  </div>
+
   <script>
     // Nav scroll state
     var nav = document.querySelector('.site-nav');
@@ -1055,13 +1156,33 @@
       }
     });
 
-    // Smooth scroll
-    document.querySelectorAll('a[href="#optin"]').forEach(function(el) {
+    // Waitlist modal
+    var backdrop = document.getElementById('waitlistBackdrop');
+
+    function openModal() {
+      backdrop.classList.add('is-open');
+      setTimeout(function() { document.getElementById('waitlistEmail').focus(); }, 50);
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('is-open');
+    }
+
+    document.querySelectorAll('.course-link').forEach(function(el) {
       el.addEventListener('click', function(e) {
         e.preventDefault();
-        document.getElementById('optin').scrollIntoView({ behavior: 'smooth' });
-        setTimeout(function() { document.getElementById('email').focus(); }, 650);
+        openModal();
       });
+    });
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+
+    backdrop.addEventListener('click', function(e) {
+      if (e.target === backdrop) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
     });
 
     // Scroll-triggered fade-in
@@ -1082,7 +1203,41 @@
       observer.observe(el);
     });
 
-    // Form submission — Kit v3 API
+    // Waitlist form submission
+    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var btn = form.querySelector('.btn-submit');
+      var email = document.getElementById('waitlistEmail').value.trim();
+      if (!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch('https://api.convertkit.com/v3/forms/9218311/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({ api_key: 'bcHR_q8mKIuSTXdG0h1zMw', email: email })
+      })
+      .then(function(res) {
+        return res.json().then(function(data) {
+          if (data.subscription || data.subscriber) {
+            form.style.display = 'none';
+            document.getElementById('waitlistConfirmation').classList.add('visible');
+          } else {
+            throw new Error(data.message || JSON.stringify(data));
+          }
+        });
+      })
+      .catch(function(err) {
+        console.error('Kit error:', err);
+        btn.disabled = false;
+        btn.textContent = 'Join the waitlist \u2009\u2192';
+        alert('Something went wrong — please try again.');
+      });
+    });
+
+    // Guide form submission — Kit v3 API
     document.getElementById('optinForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var form = this;
