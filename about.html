@@ -601,11 +601,16 @@
         audio.play();
         playIcon.style.display = 'none';
         pauseIcon.style.display = 'block';
-        // Pause video if playing
+        // Pause videos if playing
         if (!video.paused) {
           video.pause();
           videoPlayIcon.style.display = 'block';
           videoPauseIcon.style.display = 'none';
+        }
+        if (!video2.paused) {
+          video2.pause();
+          videoPlayIcon2.style.display = 'block';
+          videoPauseIcon2.style.display = 'none';
         }
       } else {
         audio.pause();
