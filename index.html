@@ -501,6 +501,21 @@
       color: #6E1522;
     }
 
+    .nav-burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--text);
+    }
+
+    .nav-burger svg {
+      width: 22px;
+      height: 16px;
+      display: block;
+    }
+
     /* ── EXTERNAL PULL QUOTE (left-border style) ──────────── */
     .ext-quote-section {
       background: radial-gradient(ellipse 60% 50% at 20% 50%,
@@ -879,8 +894,40 @@
         padding: 18px 24px;
       }
 
+      .nav-burger {
+        display: block;
+      }
+
       .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(250, 249, 246, 0.97);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--rule);
+        padding: 0.75rem 24px 1.25rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li {
+        padding: 0.65rem 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links a {
+        font-size: 0.72rem;
       }
 
       .courses-grid {
@@ -913,6 +960,13 @@
 
 <nav class="site-nav" aria-label="Site navigation">
     <a href="/" class="nav-brand">Open Strings, Open to Your Practice</a>
+    <button class="nav-burger" aria-label="Open menu">
+      <svg viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="0" y1="1" x2="22" y2="1"/>
+        <line x1="0" y1="8" x2="22" y2="8"/>
+        <line x1="0" y1="15" x2="22" y2="15"/>
+      </svg>
+    </button>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="#">Courses</a></li>
@@ -1149,6 +1203,16 @@
   </div>
 
   <script>
+    // Hamburger menu
+    var burger = document.querySelector('.nav-burger');
+    var navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', function() {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') navLinks.classList.remove('open');
+    });
+
     // Nav scroll state
     var nav = document.querySelector('.site-nav');
     window.addEventListener('scroll', function() {

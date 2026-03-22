@@ -76,6 +76,21 @@
   .header-nav .nav-cta { color: var(--accent); font-weight: 500; }
   .header-nav .nav-cta:hover { color: var(--accent-hover); }
 
+  .nav-burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--ink);
+  }
+
+  .nav-burger svg {
+    width: 22px;
+    height: 16px;
+    display: block;
+  }
+
   /* PAGE HEADER */
   .page-header {
     max-width: 1100px;
@@ -489,7 +504,32 @@
 
   @media (max-width: 600px) {
     .posts-grid { grid-template-columns: 1fr; }
-    .header-nav { display: none; }
+    .nav-burger { display: block; }
+
+    .header-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(250, 249, 246, 0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 24px 1.25rem;
+      list-style: none;
+    }
+
+    .header-nav.open { display: flex; }
+
+    .header-nav li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .header-nav li:last-child { border-bottom: none; }
     .cta-section { padding: 36px 24px; }
   }
 </style>
@@ -499,6 +539,13 @@
 <header>
   <div class="header-inner">
     <a href="/" class="site-name">Open Strings, Open to Your Practice</a>
+    <button class="nav-burger" aria-label="Open menu">
+      <svg viewBox="0 0 22 16" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="0" y1="1" x2="22" y2="1"/>
+        <line x1="0" y1="8" x2="22" y2="8"/>
+        <line x1="0" y1="15" x2="22" y2="15"/>
+      </svg>
+    </button>
     <ul class="header-nav">
       <li><a href="about.html">About</a></li>
       <li><a href="index.html#courses">Courses</a></li>
@@ -713,6 +760,16 @@
 </footer>
 
 <script>
+  // Hamburger menu
+  var burger = document.querySelector('.nav-burger');
+  var headerNav = document.querySelector('.header-nav');
+  burger.addEventListener('click', function() {
+    headerNav.classList.toggle('open');
+  });
+  headerNav.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') headerNav.classList.remove('open');
+  });
+
   const filterMap = {
     'Improvisation': 'improvisation',
     'Mindfulness': 'mindfulness',
