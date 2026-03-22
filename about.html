@@ -352,7 +352,7 @@
       margin-bottom: 1rem;
     }
     
-    #play-pause-btn, #video-play-pause-btn, #video-play-pause-btn-2 {
+    #play-pause-btn, #video-play-pause-btn, #video-play-pause-btn-2, #video-play-pause-btn-3 {
       flex-shrink: 0;
       width: 48px;
       height: 48px;
@@ -366,11 +366,11 @@
       transition: background 0.2s, border-color 0.2s;
     }
     
-    #play-pause-btn:hover, #video-play-pause-btn:hover, #video-play-pause-btn-2:hover {
+    #play-pause-btn:hover, #video-play-pause-btn:hover, #video-play-pause-btn-2:hover, #video-play-pause-btn-3:hover {
       background: rgba(139, 26, 43, 0.05);
     }
     
-    #play-pause-btn svg, #video-play-pause-btn svg, #video-play-pause-btn-2 svg {
+    #play-pause-btn svg, #video-play-pause-btn svg, #video-play-pause-btn-2 svg, #video-play-pause-btn-3 svg {
       width: 20px;
       height: 20px;
       fill: var(--accent);
@@ -505,7 +505,29 @@
         </div>
       </div>
 
-      <!-- Video Player -->
+      <!-- Duo Video (light) -->
+      <div class="player-section">
+        <video id="video-player-2" poster="/assets/photo/Josh_alan_light_vid_thumb.png" preload="auto" loop>
+          <source src="/assets/video/V_L_Josh_alan_light.mp4" type="video/mp4">
+        </video>
+        <div class="player-controls">
+          <button id="video-play-pause-btn-2">
+            <svg id="video-play-icon-2" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="video-pause-icon-2" viewBox="0 0 24 24" style="display:none;"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+          </button>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="video-progress-fill-2"></div>
+            </div>
+            <div class="progress-label">VIDEO PREVIEW</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="players-wrapper" style="margin-bottom: 3rem;">
+      <!-- Solo Video -->
       <div class="player-section">
         <video id="video-player" poster="/assets/photo/site_vid_thumb.jpg" preload="auto" loop>
           <source src="/assets/video/alan_solo_site_topanga_comp.mp4" type="video/mp4">
@@ -523,22 +545,20 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Second Video Player (centered) -->
-    <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
-      <div class="player-section" style="flex: none;">
-        <video id="video-player-2" poster="/assets/photo/Josh_alan_light_vid_thumb.png" preload="auto" loop>
-          <source src="/assets/video/V_L_Josh_alan_light.mp4" type="video/mp4">
+      <!-- Duo Video (dark) -->
+      <div class="player-section">
+        <video id="video-player-3" poster="/assets/photo/dark_josh_alan_thumb.jpg" preload="auto" loop>
+          <source src="/assets/video/dark_josh_alan_site.mp4" type="video/mp4">
         </video>
-        <div class="player-controls" style="margin-top: calc(1rem + 72px);">
-          <button id="video-play-pause-btn-2" style="flex-shrink:0;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--accent);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">
-            <svg id="video-play-icon-2" viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--accent);"><path d="M8 5v14l11-7z"/></svg>
-            <svg id="video-pause-icon-2" viewBox="0 0 24 24" style="display:none;width:20px;height:20px;fill:var(--accent);"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+        <div class="player-controls">
+          <button id="video-play-pause-btn-3">
+            <svg id="video-play-icon-3" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="video-pause-icon-3" viewBox="0 0 24 24" style="display:none;"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
           </button>
           <div class="progress-container">
             <div class="progress-bar">
-              <div class="progress-fill" id="video-progress-fill-2"></div>
+              <div class="progress-fill" id="video-progress-fill-3"></div>
             </div>
             <div class="progress-label">VIDEO PREVIEW</div>
           </div>
@@ -612,6 +632,11 @@
           videoPlayIcon2.style.display = 'block';
           videoPauseIcon2.style.display = 'none';
         }
+        if (!video3.paused) {
+          video3.pause();
+          videoPlayIcon3.style.display = 'block';
+          videoPauseIcon3.style.display = 'none';
+        }
       } else {
         audio.pause();
         playIcon.style.display = 'block';
@@ -646,7 +671,8 @@
         videoPlayIcon.style.display = 'none';
         videoPauseIcon.style.display = 'block';
         if (!audio.paused) { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
-        if (video2 && !video2.paused) { video2.pause(); videoPlayIcon2.style.display = 'block'; videoPauseIcon2.style.display = 'none'; }
+        if (!video2.paused) { video2.pause(); videoPlayIcon2.style.display = 'block'; videoPauseIcon2.style.display = 'none'; }
+        if (!video3.paused) { video3.pause(); videoPlayIcon3.style.display = 'block'; videoPauseIcon3.style.display = 'none'; }
       } else {
         video.pause();
         videoPlayIcon.style.display = 'block';
@@ -680,6 +706,7 @@
         videoPauseIcon2.style.display = 'block';
         if (!audio.paused) { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
         if (!video.paused) { video.pause(); videoPlayIcon.style.display = 'block'; videoPauseIcon.style.display = 'none'; }
+        if (!video3.paused) { video3.pause(); videoPlayIcon3.style.display = 'block'; videoPauseIcon3.style.display = 'none'; }
       } else {
         video2.pause();
         videoPlayIcon2.style.display = 'block';
@@ -694,6 +721,40 @@
       if (video2.duration) {
         const progress = (video2.currentTime / video2.duration) * 100;
         videoProgressFill2.style.width = progress + '%';
+      }
+    });
+
+    // Third Video Player
+    const video3 = document.getElementById('video-player-3');
+    const videoPlayPauseBtn3 = document.getElementById('video-play-pause-btn-3');
+    const videoPlayIcon3 = document.getElementById('video-play-icon-3');
+    const videoPauseIcon3 = document.getElementById('video-pause-icon-3');
+    const videoProgressFill3 = document.getElementById('video-progress-fill-3');
+
+    video3.removeAttribute('controls');
+
+    function toggleVideo3() {
+      if (video3.paused) {
+        video3.play();
+        videoPlayIcon3.style.display = 'none';
+        videoPauseIcon3.style.display = 'block';
+        if (!audio.paused) { audio.pause(); playIcon.style.display = 'block'; pauseIcon.style.display = 'none'; }
+        if (!video.paused) { video.pause(); videoPlayIcon.style.display = 'block'; videoPauseIcon.style.display = 'none'; }
+        if (!video2.paused) { video2.pause(); videoPlayIcon2.style.display = 'block'; videoPauseIcon2.style.display = 'none'; }
+      } else {
+        video3.pause();
+        videoPlayIcon3.style.display = 'block';
+        videoPauseIcon3.style.display = 'none';
+      }
+    }
+
+    videoPlayPauseBtn3.addEventListener('click', toggleVideo3);
+    video3.addEventListener('click', toggleVideo3);
+
+    video3.addEventListener('timeupdate', () => {
+      if (video3.duration) {
+        const progress = (video3.currentTime / video3.duration) * 100;
+        videoProgressFill3.style.width = progress + '%';
       }
     });
 
