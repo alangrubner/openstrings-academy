@@ -274,6 +274,10 @@
     .header-nav { display: none; }
     footer { padding: 36px 24px; }
   }
+
+  .comments-section { padding: 48px 0 0; border-top: 1px solid var(--rule, #e0dbd2); }
+  .comments-inner { max-width: 680px; margin: 0 auto; padding: 0 40px 64px; }
+  @media (max-width: 600px) { .comments-inner { padding: 0 24px 48px; } }
 </style>
 </head>
 <body>
@@ -434,6 +438,23 @@
 
 </div>
 
+<section class="comments-section">
+  <div class="comments-inner">
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-openstrings-academy-vercel-app-blog-html.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  </div>
+</section>
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">Open Strings Blog</div>
