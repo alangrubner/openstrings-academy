@@ -1,300 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>On Perfection and Listening | Open Strings Academy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Perfection and Listening | Open Strings</title>
+<meta name="description" content="Maybe the goal isn't for the performer's playing to be perfect. Maybe the goal is for our listening to be as perfect as it can be.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #FAFAF8; --bg-alt: #F3F1EC; --ink: #1C1C1A; --ink-mid: #4A4A46; --ink-light: #8A8A84; --rule: #E2DFDA; --accent: #8B1A2B; --accent-hover: #6E1522; }
+  * { margin: 0; padding: 0; box-sizing: border-box; } html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  header { border-bottom: 1px solid var(--rule); background: var(--bg); position: sticky; top: 0; z-index: 100; }
+  .header-inner { max-width: 1100px; margin: 0 auto; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .site-name { font-family: 'Outfit', system-ui, sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+  .header-nav { display: flex; gap: 32px; list-style: none; }
+  .header-nav a { font-size: 0.82rem; color: var(--ink-mid); text-decoration: none; font-weight: 400; transition: color 0.15s; }
+  .header-nav a:hover { color: var(--ink); } .header-nav .nav-cta { color: var(--accent); font-weight: 500; }
+  .article-wrap { max-width: 680px; margin: 0 auto; padding: 64px 40px 100px; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--ink-light); text-decoration: none; margin-bottom: 48px; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); } .back-link::before { content: '\2190'; }
+  .article-category { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; color: var(--accent); margin-bottom: 16px; }
+  .article-title { font-family: 'Outfit', system-ui, sans-serif; font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 600; line-height: 1.18; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 20px; }
+  .article-subtitle { font-family: 'Outfit', system-ui, sans-serif; font-size: 1.15rem; font-weight: 400; font-style: italic; color: var(--ink-mid); line-height: 1.65; margin-bottom: 32px; }
+  .article-meta { display: flex; align-items: center; gap: 12px; font-size: 0.78rem; color: var(--ink-light); padding-bottom: 36px; border-bottom: 1px solid var(--rule); margin-bottom: 48px; }
+  .article-meta .sep { opacity: 0.4; }
+  .article-body p { font-family: 'Outfit', system-ui, sans-serif; font-size: 1.05rem; line-height: 1.88; color: var(--ink-mid); margin-bottom: 28px; }
+  .article-body p:first-child { color: var(--ink); font-size: 1.1rem; }
+  .article-body h2 { font-family: 'Outfit', system-ui, sans-serif; font-size: 1.3rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.015em; color: var(--ink); margin-top: 56px; margin-bottom: 20px; }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 52px 0; }
+  .article-body em { font-style: italic; }
+  .pull-quote { font-family: 'Outfit', system-ui, sans-serif; font-size: 1.18rem; font-style: italic; color: var(--ink); line-height: 1.65; border-left: 2px solid var(--accent); padding-left: 24px; margin: 44px 0; }
+  .article-cta { background: var(--bg-alt); border: 1px solid var(--rule); padding: 36px 40px; margin-top: 64px; }
+  .article-cta .cta-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+  .article-cta p { font-family: 'Outfit', system-ui, sans-serif; font-size: 0.95rem; line-height: 1.75; color: var(--ink-mid); font-style: italic; }
+  .article-cta a { display: inline-block; margin-top: 16px; font-size: 0.8rem; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .article-cta a::after { content: ' \2192'; }
+  footer { border-top: 1px solid var(--rule); padding: 36px 40px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-brand { font-family: 'Outfit', system-ui, sans-serif; font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+  .footer-links { display: flex; gap: 24px; } .footer-links a { font-size: 0.78rem; color: var(--ink-light); text-decoration: none; }
+  .footer-copy { width: 100%; font-size: 0.72rem; color: var(--ink-light); margin-top: 8px; font-weight: 300; }
+  @media (max-width: 600px) { .article-wrap { padding: 40px 24px 80px; } .header-inner { padding: 18px 24px; } .header-nav { display: none; } footer { padding: 36px 24px; } }
 
-    :root {
-      --accent: #8B1A2B;
-      --accent-light: #b8293d;
-      --bg: #faf9f6;
-      --text: #1a1a1a;
-      --text-muted: #5a5a5a;
-      --rule: #e0ddd6;
-      --max-width: 680px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Lora', Georgia, serif;
-      font-size: 1.125rem;
-      line-height: 1.8;
-    }
-
-    /* NAV */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2.5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .nav-logo {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 0.04em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    /* ARTICLE HEADER */
-    .article-header {
-      max-width: var(--max-width);
-      margin: 4rem auto 0;
-      padding: 0 2rem;
-    }
-
-    .article-category {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-    }
-
-    .article-title {
-      font-family: 'Lora', serif;
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      font-weight: 600;
-      line-height: 1.2;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-    }
-
-    .article-meta {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 2.5rem;
-    }
-
-    .article-meta span { margin-right: 1.5rem; }
-
-    /* PULL QUOTE / LEDE */
-    .pull-quote {
-      border-left: 3px solid var(--accent);
-      padding: 1.25rem 1.75rem;
-      margin: 0 0 3rem;
-      background: rgba(139, 26, 43, 0.04);
-    }
-
-    .pull-quote p {
-      font-family: 'Lora', serif;
-      font-size: 1.2rem;
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--text);
-    }
-
-    /* DIVIDER */
-    .rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 3rem 0;
-    }
-
-    /* BODY */
-    .article-body {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 2rem 6rem;
-    }
-
-    .article-body p {
-      margin-bottom: 1.75rem;
-    }
-
-    .article-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* INLINE PULL */
-    .inline-pull {
-      font-family: 'Lora', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      font-weight: 600;
-      color: var(--accent);
-      text-align: center;
-      padding: 2rem 0;
-      line-height: 1.5;
-    }
-
-    /* CTA */
-    .cta-block {
-      margin: 4rem 0 0;
-      padding: 2.5rem;
-      border: 1px solid var(--rule);
-      background: #fff;
-      text-align: center;
-    }
-
-    .cta-block p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-    }
-
-    .cta-button {
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #fff;
-      background: var(--accent);
-      padding: 0.8rem 2rem;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .cta-button:hover { background: var(--accent-light); }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 2rem 2.5rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 1.25rem 1.25rem; }
-      .nav-links { gap: 1.25rem; }
-      .article-header, .article-body { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .cta-block { padding: 1.75rem 1.25rem; }
-    }
-  </style>
+  .comments-section { padding: 48px 0 0; border-top: 1px solid var(--rule, #e0dbd2); }
+  .comments-inner { max-width: 680px; margin: 0 auto; padding: 0 40px 64px; }
+  @media (max-width: 600px) { .comments-inner { padding: 0 24px 48px; } }
+</style>
 </head>
 <body>
-
-  <nav>
-    <a class="nav-logo" href="/">Open Strings Academy</a>
-    <ul class="nav-links">
-      <li><a href="/about">About</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/#courses">Courses</a></li>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-name">Open Strings, Open to Your Practice</a>
+    <ul class="header-nav">
+      <li><a href="#">About</a></li><li><a href="#">Courses</a></li>
+      <li><a href="blog.html">Writing</a></li>
+      <li><a href="#" class="nav-cta">Begin here &thinsp;&rarr;</a></li>
     </ul>
-  </nav>
+  </div>
+</header>
 
-  <article>
+<div class="article-wrap">
+  <a href="blog.html" class="back-link">Back to all articles</a>
+  <div class="article-category">Practice &amp; Presence</div>
+  <h1 class="article-title">On Perfection and Listening</h1>
+  <p class="article-subtitle">Maybe the goal isn't for the performer's playing to be perfect. Maybe the goal is for our <em>listening</em> to be as perfect as it can be.</p>
+  <div class="article-meta">
+    <span>5 min read</span><span class="sep">·</span><span>Practice &amp; Presence</span><span class="sep">·</span><span>March 2026</span>
+  </div>
 
-    <header class="article-header">
-      <p class="article-category">Practice &amp; Presence</p>
-      <h1 class="article-title">On Perfection and Listening</h1>
-      <p class="article-meta">
-        <span>By Alan Grubner</span>
-      </p>
+  <div class="article-body">
 
-      <blockquote class="pull-quote">
-        <p>Maybe the goal isn't for the performer's playing to be perfect. Maybe the goal is for our <em>listening</em> to be as perfect as it can be.</p>
-      </blockquote>
-    </header>
+    <p>Not long ago I watched Johnny Gandelsman record the Bach Cello Suites live — all six of them, in their violin transcription, in a single sitting. And sitting there, I found myself thinking about perfection. Not whether Johnny's playing was perfect. About whether that's even the right question to ask.</p>
 
-    <div class="article-body">
+    <p>Think about what it means to speak a language — really speak it. Expressively. With something genuine to say. When what you're communicating feels true to you, and that truth comes through with conviction, and the listener feels it — when they sense that you've shared your whole heart with them — then the music becomes a bridge. A vehicle for your humanity that makes possible a real connection: between your humanity and theirs, and by extension to the wider community of human beings.</p>
 
-      <p>
-        Not long ago I watched Johnny Gandelsman record the Bach Cello Suites live — all six of them, in their violin transcription, in a single sitting. And sitting there, I found myself thinking about perfection. Not whether Johnny's playing was perfect. About whether that's even the right question to ask.
-      </p>
+    <p>If all of that is present — and it was so clearly present as Johnny played his felt, lived, understood experience of these suites — how could anyone say that performance was anything less than perfect? And where does the idea of perfection even have a place in that conversation?</p>
 
-      <p>
-        Think about what it means to speak a language — really speak it. Expressively. With something genuine to say. When what you're communicating feels true to you, and that truth comes through with conviction, and the listener feels it — when they sense that you've shared your whole heart with them — then the music becomes a bridge. A vehicle for your humanity that makes possible a real connection: between your humanity and theirs, and by extension to the wider community of human beings.
-      </p>
+    <hr>
 
-      <p>
-        If all of that is present — and it was so clearly present as Johnny played his felt, lived, understood experience of these suites — how could anyone say that performance was anything less than perfect? And where does the idea of perfection even have a place in that conversation?
-      </p>
+    <p>Sure, on a different night, with a different audience, he might have executed certain passages with greater technical precision. But does anyone care? Does anyone remember, on a night when someone spoke from their heart and the message landed, whether every word was flawlessly pronounced — whether one sentence rolled more easily off the tongue than another? On both nights, the feeling of the night and the heart of the speaker were absolutely, undeniably present in every moment.</p>
 
-      <hr class="rule" />
+    <div class="pull-quote">"How undefended can your listening be?"</div>
 
-      <p>
-        Sure, on a different night, with a different audience, he might have executed certain passages with greater technical precision. But does anyone care? Does anyone remember, on a night when someone spoke from their heart and the message landed, whether every word was flawlessly pronounced — whether one sentence rolled more easily off the tongue than another? On both nights, the feeling of the night and the heart of the speaker were absolutely, undeniably present in every moment.
-      </p>
+    <p>I'm not knocking technical precision. I have a very fancy degree in English literature from one of the fanciest places you can get such a degree. But once someone has done the work — learned the language, developed a relationship with its vocabulary, found their own way with it — at that point, the only thing I care about is how deeply I can feel their humanity. The greatest measure of a performance is how fully I'm drawn into the container, how completely I'm invited to be present so the language can be spoken and truly received.</p>
 
-      <p class="inline-pull">"How undefended can your listening be?"</p>
+    <p>How deeply am I called into my own humanity, my own silence, my own vulnerability — so that I can receive what's being offered without defending against it?</p>
 
-      <p>
-        I'm not knocking technical precision. I have a very fancy degree in English literature from one of the fanciest places you can get such a degree. But once someone has done the work — learned the language, developed a relationship with its vocabulary, found their own way with it — at that point, the only thing I care about is how deeply I can feel their humanity. The greatest measure of a performance is how fully I'm drawn into the container, how completely I'm invited to be present so the language can be spoken and truly received.
-      </p>
+    <hr>
 
-      <p>
-        How deeply am I called into my own humanity, my own silence, my own vulnerability — so that I can receive what's being offered without defending against it?
-      </p>
+    <p>So maybe the goal isn't for the performer's playing to be perfect. Maybe the goal is for our <em>listening</em> to be as perfect as it can be. How open can your heart be as you sit there and make yourself a vessel — a relay station in a relay — for what's being given?</p>
 
-      <hr class="rule" />
+    <p>That's the invitation.</p>
 
-      <p>
-        So maybe the goal isn't for the performer's playing to be perfect. Maybe the goal is for our <em>listening</em> to be as perfect as it can be. How open can your heart be as you sit there and make yourself a vessel — a relay station in a relay — for what's being given?
-      </p>
+  </div>
 
-      <p>
-        That's the invitation.
-      </p>
+  <div class="article-cta">
+    <div class="cta-label">The next step</div>
+    <p>Open Strings Academy exists to help string players access exactly this kind of listening — in themselves, in their practice, and in their playing. Come explore what's possible.</p>
+    <a href="/#courses">Explore the courses</a>
+  </div>
+</div>
 
-      <div class="cta-block">
-        <p>
-          If this resonates with you, Open Strings Academy exists to help string players access exactly this kind of listening — in themselves, in their practice, and in their playing. Come explore what's possible.
-        </p>
-        <a class="cta-button" href="/#courses">Explore the Courses</a>
-      </div>
+<section class="comments-section">
+  <div class="comments-inner">
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = window.location.href;
+        this.page.identifier = window.location.pathname;
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-openstrings-academy-vercel-app-blog-html.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  </div>
+</section>
 
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Open Strings Blog</div>
+    <div class="footer-links">
+      <a href="#">About</a><a href="blog.html">All Articles</a><a href="#">Resources</a><a href="#">Contact</a>
     </div>
-  </article>
-
-  <section class="comments-section">
-    <div class="comments-inner">
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          this.page.url = window.location.href;
-          this.page.identifier = window.location.pathname;
-        };
-        (function() {
-          var d = document, s = d.createElement('script');
-          s.src = 'https://https-openstrings-academy-vercel-app-blog-html.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Open Strings Academy &mdash; Alan Grubner
-  </footer>
-
+    <div class="footer-copy">© 2026 Open Strings · Music, mindfulness &amp; improvisation for string players</div>
+  </div>
+</footer>
 </body>
 </html>
