@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Strings Academy — Coming Soon</title>
+  <meta name="description" content="For string players and anyone ready to journey into practice. Coming soon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Variables ───────────────────────────────────────────── */
+    :root {
+      --bg:           #faf9f6;
+      --bg-warm:      #f3f0ea;
+      --text:         #1a1714;
+      --text-mid:     #4a4540;
+      --text-light:   #7a7068;
+      --border:       #ddd8cf;
+      --crimson:      #8B1A2B;
+      --crimson-light:#a82035;
+      --font-serif:   'Lora', Georgia, serif;
+      --font-sans:    'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ── Reset ───────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── Atmospheric gradient ────────────────────────────────── */
+    .page-wrap {
+      width: 100%;
+      padding: 108px 40px 120px;
+      background: radial-gradient(
+        ellipse 110% 70% at 50% -15%,
+        rgba(139, 26, 43, 0.05) 0%,
+        transparent 65%
+      );
+    }
+
+    /* ── Inner column ────────────────────────────────────────── */
+    .inner {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    /* ── Entrance animations ─────────────────────────────────── */
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim-nav        { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+    .anim-overline   { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+    .anim-heading    { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.30s both; }
+    .anim-string     { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both; }
+    .anim-teaser     { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both; }
+    .anim-note       { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both; }
+
+    /* ── Overline ────────────────────────────────────────────── */
+    .overline {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 2rem;
+    }
+
+    /* ── Heading ─────────────────────────────────────────────── */
+    h1 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: clamp(2.875rem, 7.5vw, 5.5rem);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 2rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* ── Construction note — prominent ──────────────────────── */
+    .construction-note {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 3vw, 1.875rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--crimson);
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin-bottom: 2.5rem;
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--crimson);
+    }
+
+    /* ── Decorative string line ──────────────────────────────── */
+    .string-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--border) 15%,
+        var(--border) 85%,
+        transparent 100%
+      );
+      margin: 2.75rem 0 1.5rem;
+    }
+
+    /* ── Teaser copy ─────────────────────────────────────────── */
+    .teaser-text {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.82;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────── */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 22px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      transition: background 0.3s ease, border-color 0.3s ease;
+      border-bottom: 1px solid transparent;
+      animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+    }
+
+    .site-nav.scrolled {
+      background: rgba(250, 249, 246, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .nav-blog {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-blog:hover {
+      color: var(--crimson);
+    }
+
+    .nav-blog .arrow {
+      display: inline-block;
+      margin-left: 0.3em;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-blog:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* ── Mobile ──────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 88px 24px 96px;
+      }
+
+      .site-nav {
+        padding: 18px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <span class="nav-brand">Open Strings, Open to Your Practice</span>
+    <a href="writing.html" class="nav-blog">Open Strings Blog<span class="arrow">→</span></a>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="inner">
+
+      <span class="overline anim-overline">
+        for string players and anyone ready to journey into practice
+      </span>
+
+      <h1 class="anim-heading">
+        Music lives in the space<br><em>between the notes.</em>
+      </h1>
+
+      <div class="string-line anim-string" role="presentation" aria-hidden="true"></div>
+
+      <p class="teaser-text anim-teaser">
+        Whether you've spent years mastering technique or you're just beginning — there's a way of playing that almost nobody teaches...
+      </p>
+
+      <p class="construction-note anim-note">Stay tuned — site under construction.<br>We'll be right back.</p>
+
+    </div>
+  </div>
+
+  <script>
+    var nav = document.querySelector('.site-nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+  </script>
+
+</body>
+</html>
