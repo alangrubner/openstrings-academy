@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unlearning Guide · Open Strings Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0d0b;
+    --bg-page: #111009;
+    --text: #e8e0d0;
+    --text-muted: #9a8e7a;
+    --text-faint: #5a5248;
+    --accent: #b87355;
+    --accent-warm: #c98d60;
+    --rule: #2a2720;
+    --page-width: 680px;
+  }
+
+  html {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* ── PRINT / PDF LAYOUT ── */
+  .page {
+    width: var(--page-width);
+    margin: 0 auto;
+    padding: 80px 60px;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 100px 60px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .cover-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 64px;
+  }
+
+  .cover-rule {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 0 auto 64px;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.2rem;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.5;
+    max-width: 380px;
+    margin: 0 auto 80px;
+  }
+
+  .cover-rule-bottom {
+    width: 32px;
+    height: 1px;
+    background: var(--text-faint);
+    margin: 0 auto 48px;
+  }
+
+  .cover-brand {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    line-height: 2;
+  }
+
+  .cover-brand a {
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.18em;
+  }
+
+  /* ── SECTION PAGES ── */
+  .content-page {
+    padding: 80px 60px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 48px;
+    display: block;
+  }
+
+  /* ── INTRO PAGE ── */
+  .intro-text {
+    font-size: 1.08rem;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.85;
+    margin-bottom: 1.6em;
+  }
+
+  /* ── SHIFT PAGES ── */
+  .shift-number {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .shift-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+
+  .shift-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.5;
+    margin-bottom: 48px;
+  }
+
+  .body-text {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.85;
+    margin-bottom: 1.5em;
+  }
+
+  .body-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-left: 1px solid var(--accent);
+    padding: 4px 0 4px 28px;
+    margin: 40px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── SHIFT 4 PRACTICE BOX ── */
+  .practice-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 300;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .practice-subhead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── CLOSING PAGE ── */
+  .closing-rule {
+    width: 48px;
+    height: 1px;
+    background: var(--text-faint);
+    margin-bottom: 48px;
+  }
+
+  .closing-sig {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-top: 48px;
+  }
+
+  /* ── BACK PAGE ── */
+  .back-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 50vh;
+    padding: 80px 60px;
+  }
+
+  .back-brand {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    line-height: 2.2;
+  }
+
+  .back-brand a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    :root { --page-width: 100%; }
+    .cover, .content-page, .back-page {
+      padding: 60px 32px;
+    }
+    .cover-title { font-size: 3rem; }
+    .shift-title { font-size: 1.9rem; }
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    html { font-size: 16px; }
+    .page, .cover, .content-page {
+      page-break-after: always;
+    }
+    .back-page { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER ═══════════════ -->
+<div class="cover">
+  <span class="cover-eyebrow">A Free Guide for String Players</span>
+  <div class="cover-rule"></div>
+  <h1 class="cover-title">The Unlearning<br>Guide</h1>
+  <p class="cover-subtitle">5 Shifts Classical String Players Need to Improvise Freely</p>
+  <div class="cover-rule-bottom"></div>
+  <div class="cover-brand">
+    <a href="https://openstrings.academy">Open Strings Academy</a>
+  </div>
+</div>
+
+<!-- ═══════════════ INTRODUCTION ═══════════════ -->
+<div class="content-page">
+  <span class="section-label">Introduction</span>
+
+  <p class="intro-text">Someone asks you to just play something.</p>
+
+  <p class="intro-text">And instead of playing — you wait. You calculate. You look for a key, a style, a starting point that feels solid enough to stand on. You think: what does she want to hear? Or worse: what do I actually know?</p>
+
+  <p class="intro-text">This is not a lack of ideas. It is a habit. A deeply grooved one, built over years of training that rewarded precision over risk, correctness over exploration, the right answer over any answer.</p>
+
+  <p class="intro-text">This guide is about that habit. What it looks like. How it works. And — specifically, concretely — how to begin dissolving it.</p>
+
+  <p class="intro-text">These five shifts won't make you a jazz musician. They won't give you a vocabulary in any particular style. What they will give you is something prior to that: the capacity to enter the sound, right now, with what you already have.</p>
+
+  <p class="intro-text">That capacity is already yours. It's just been organized away.</p>
+</div>
+
+<!-- ═══════════════ SHIFT 1 ═══════════════ -->
+<div class="content-page">
+  <span class="shift-number">Shift 1</span>
+  <h2 class="shift-title">The Control Habit</h2>
+  <div class="shift-rule"></div>
+
+  <p class="body-text">The first thing to understand is that your training did not fail you. It succeeded — at something specific.</p>
+
+  <p class="body-text">Classical training is a discipline of execution. You learn to realize a score, to translate notation into sound with accuracy and, eventually, with interpretive intelligence. The model is: someone wrote something. Your job is to serve it.</p>
+
+  <p class="body-text">This is a genuine skill and, in certain contexts, an art. But it installs a disposition toward your instrument that runs deep enough to feel like personality.</p>
+
+  <p class="body-text">You may have noticed it as a reluctance to start. A need to know, in advance, what the shape of what you're about to play will be. A low-grade anxiety when that structure isn't available.</p>
+
+  <p class="body-text">This is the control habit. And it has a cousin most classically trained players don't recognize: the habit of waiting until you're good enough. Waiting until you've listened to more jazz, practiced more scales, understood more theory. As if free playing were a destination you reach, rather than a mode you inhabit.</p>
+
+  <p class="body-text">The first shift is simply this: see the habit.</p>
+
+  <p class="body-text">Not judge it. Not overcome it in a single session. Just recognize its shape — the particular way you delay, hesitate, intellectualize, or reach for a frame before you'll let yourself play.</p>
+
+  <p class="body-text">That recognition is not incidental to the work. It is the beginning of it.</p>
+</div>
+
+<!-- ═══════════════ SHIFT 2 ═══════════════ -->
+<div class="content-page">
+  <span class="shift-number">Shift 2</span>
+  <h2 class="shift-title">Fear Is Information</h2>
+  <div class="shift-rule"></div>
+
+  <p class="body-text">When you freeze — when someone invites you to improvise and your body's first response is contraction rather than expansion — something specific is happening.</p>
+
+  <p class="body-text">Here is what most musicians are told about that freeze: push through it. Just start playing. Fake it until you make it.</p>
+
+  <p class="body-text">This is, at best, incomplete advice. At worst, it teaches you to go to war with your nervous system — which is a war you will lose every time.</p>
+
+  <p class="body-text">The more useful question is: what is the fear actually telling you?</p>
+
+  <p class="body-text">Most of the time, it is not telling you that you are untalented, or unprepared, or that something bad will happen if you play. Those interpretations are added by the mind — quickly, automatically, usually with great conviction.</p>
+
+  <p class="body-text">What the fear is actually reporting, underneath those interpretations, is something simpler: this situation is unfamiliar. The absence of a score. The openness of the moment. The exposure of having no predetermined right answer.</p>
+
+  <p class="body-text">That discomfort is real. It is not a sign that you should stop. It is a sign that you are at the edge of what you already know — which is exactly where anything new becomes possible.</p>
+
+  <div class="pull-quote">
+    <p>There is a phrase from vipassana practice that I find more useful here than any musical instruction: <em>bare attention.</em> The capacity to notice what is happening in the body, in the moment, without immediately narrating it into a problem.</p>
+  </div>
+
+  <p class="body-text">When you freeze at the threshold of improvising, the practice is not to stop noticing. It is to notice more precisely. To feel where the tension is. To observe the quality of the resistance. To recognize that you can stay present to that experience without needing to resolve it through action.</p>
+
+  <p class="body-text">This is, in compressed form, what all contemplative practice asks. And it is precisely what improvisation asks, if you let it.</p>
+</div>
+
+<!-- ═══════════════ SHIFT 3 ═══════════════ -->
+<div class="content-page">
+  <span class="shift-number">Shift 3</span>
+  <h2 class="shift-title">The Myth of the Natural Improviser</h2>
+  <div class="shift-rule"></div>
+
+  <p class="body-text">There is a story that circulates among classical musicians — usually told through someone else, someone who seems to have always been able to improvise, who just <em>has it</em>, who never struggled with the blank slate the way you do.</p>
+
+  <p class="body-text">This story is a fabrication. Not a conscious one, but a fabrication nonetheless.</p>
+
+  <p class="body-text">Nobody was born playing freely. Nobody arrived at a session or a jazz jam or a drone circle without having put in time — specific time, specific practice — developing the habits of mind and ear that make free playing feel natural.</p>
+
+  <p class="body-text">What looks like a gift is usually a different education. Jazz musicians learned to play by ear before they learned to read. Folk musicians learned by imitation and repetition, in oral traditions that demanded the ear be the primary instrument. Session players learned by doing — by playing wrong, often, and then adjusting, in rooms full of other people doing the same.</p>
+
+  <p class="body-text">Classical training did not give you an inferior musical brain. It gave you a highly specialized one. The capacity that feels missing — the ability to enter a musical situation without a map — is not a talent. It is a skill. A learnable one, with a pedagogy.</p>
+
+  <p class="body-text">The shift here is from <em>I don't have it</em> to <em>I haven't been taught this yet.</em></p>
+
+  <p class="body-text">That may sound like a small distinction. It isn't. One is a statement about your nature. The other is a statement about what comes next.</p>
+</div>
+
+<!-- ═══════════════ SHIFT 4 ═══════════════ -->
+<div class="content-page">
+  <span class="shift-number">Shift 4</span>
+  <h2 class="shift-title">Your First Drone Exercise</h2>
+  <div class="shift-rule"></div>
+
+  <p class="body-text">This is the one practice you can do tonight. It requires no theory, no prior experience with improvisation. Ten minutes.</p>
+
+  <p class="body-text"><span class="practice-label">What you need</span>A drone — a sustained root note you don't have to produce yourself. A phone app will work: search for "drone machine" or "tanpura app" and set it to D, open. Or find a single sustained D on any keyboard or digital source and let it loop.</p>
+
+  <p class="body-text">If you have access to a second string player, have them bow an open D or A quietly and continuously while you practice. The human drone is better. Use it if it's available.</p>
+
+  <p class="body-text"><span class="practice-label">The practice</span>Set the drone going. Sit with your instrument — or without it for the first two minutes.</p>
+
+  <p class="body-text">Just listen. Not analytically. Let the drone become the background rather than the foreground. Notice where you feel it in your body. On violin or viola, this is often in the sternum. On a frame drum, it is everywhere.</p>
+
+  <p class="body-text">Then, when you're ready — no countdown, no plan — play a single note.</p>
+
+  <p class="body-text">One note. Hold it.</p>
+
+  <p class="body-text">Hold it past the point where it feels comfortable to hold it. Let it decay if you're on a bowed instrument. Feel the silence that follows.</p>
+
+  <p class="body-text">Then play another note. Any note. Let it surprise you.</p>
+
+  <p class="body-text"><span class="practice-label">What you are practicing</span>You are not practicing improvisation in the sense of playing music. You are practicing the moment before that — the willingness to enter sound without a plan, to let a note arrive rather than to choose one.</p>
+
+  <p class="body-text">This distinction matters. Most people approach improvisation as a compositional problem: what should I play next? The drone exercise removes that question. There is no next until there is a now. Your only job is to be present to the note you are currently producing.</p>
+
+  <p class="body-text">If you find your mind beginning to plan — beginning to hear the phrase you might play, the direction it might go — notice that. Without judgment. Then return to the drone. Return to the note you're on.</p>
+
+  <p class="body-text">Do this for ten minutes. Three days in a row. Then notice what changes.</p>
+</div>
+
+<!-- ═══════════════ SHIFT 5 ═══════════════ -->
+<div class="content-page">
+  <span class="shift-number">Shift 5</span>
+  <h2 class="shift-title">What to Do With Wrong Notes</h2>
+  <div class="shift-rule"></div>
+
+  <p class="body-text">Here is the reframe, and I want to be precise about it rather than inspirational.</p>
+
+  <p class="body-text">There are no wrong notes. There are only notes that haven't been resolved yet.</p>
+
+  <p class="body-text">This is not a sentiment. It is a description of how harmony actually works. Any note can follow any note, if what comes after it provides enough context for the ear to make sense of the journey. Jazz musicians know this empirically — they have been playing their way out of "mistakes" for years and have discovered that the recovery is often more interesting than the original intention.</p>
+
+  <p class="body-text">What the classical musician experiences as a wrong note is a moment of distance between what she intended and what arrived. That distance feels like failure because her training framed any deviation from the score as error. But in the context of improvisation, deviation <em>is</em> the score. The unexpected note is the invitation.</p>
+
+  <p class="body-text">The practice, when a note arrives that doesn't feel right, is not to stop. Not to apologize for it, even internally. It is to play toward it — to find the harmonic context that makes it make sense, or to simply hold it long enough that it begins to feel like a choice.</p>
+
+  <div class="pull-quote">
+    <p>The fear of the wrong note is the fear of being seen in process. Of being heard mid-discovery rather than at the polished end of it.</p>
+  </div>
+
+  <p class="body-text">Improvisation asks you to make your process audible. To let other people hear you not-knowing, and then knowing, and then not-knowing again. That is not a performance flaw. It is what the music is.</p>
+</div>
+
+<!-- ═══════════════ CLOSING ═══════════════ -->
+<div class="content-page">
+  <span class="section-label">A Note on What Comes Next</span>
+  <div class="closing-rule"></div>
+
+  <p class="body-text">This guide is an introduction to a way of thinking about your instrument — and about yourself as a musician — that I've spent years developing and that I now teach directly.</p>
+
+  <p class="body-text">If what you've read here resonates, there is more. The drone practice in Shift 4 is the beginning of a longer curriculum: using your instrument as an attention practice — not just a way to express music, but a way to cultivate the same quality of presence that serious contemplative practice develops. That work lives in a course I'll be offering on instrument-as-contemplative-practice.</p>
+
+  <p class="body-text">And if the fear around improvisation feels larger than a guide can address — if it connects to something about your identity as a musician, about what you were told you were and what you were rewarded for — that is also curriculum. That conversation belongs in a separate course on improvisation specifically for classically trained musicians.</p>
+
+  <p class="body-text">You can follow the work at <a href="https://openstrings.academy" style="color: var(--accent); text-decoration: none;">openstrings.academy</a>. Or simply write back to the email this guide arrived in. I read every reply.</p>
+
+  <p class="closing-sig" style="margin-top: 24px;">— Alan Grubner</p>
+
+  <p style="margin-top: 24px; font-family: 'DM Sans', sans-serif; font-size: 0.62rem; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; text-align: center;">
+    <a href="https://openstrings.academy" style="color: var(--accent); text-decoration: none;">openstrings.academy</a>
+  </p>
+</div>
+
+</body>
+</html>
