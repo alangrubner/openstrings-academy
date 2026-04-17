@@ -75,7 +75,8 @@
     .anim-heading    { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.30s both; }
     .anim-string     { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both; }
     .anim-teaser     { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both; }
-    .anim-note       { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both; }
+    .anim-cta        { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both; }
+    .anim-note       { animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.80s both; }
 
     /* ── Overline ────────────────────────────────────────────── */
     .overline {
@@ -200,6 +201,37 @@
       transform: translateX(3px);
     }
 
+    /* ── CTA button ─────────────────────────────────────────── */
+    .cta-wrap {
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 400;
+      color: #fff;
+      background-color: var(--crimson);
+      text-decoration: none;
+      padding: 0.85em 2.25em;
+      border-radius: 4px;
+      letter-spacing: 0.01em;
+      transition: background-color 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--crimson-light);
+    }
+
+    @media (max-width: 640px) {
+      .cta-btn {
+        display: block;
+        text-align: center;
+      }
+    }
+
     /* ── Mobile ──────────────────────────────────────────────── */
     @media (max-width: 640px) {
       .page-wrap {
@@ -235,6 +267,10 @@
       <p class="teaser-text anim-teaser">
         Whether you've spent years mastering technique or you're just beginning — there's a way of playing that almost nobody teaches...
       </p>
+
+      <div class="cta-wrap anim-cta">
+        <a href="https://www.alangrubnermusic.com/contact" class="cta-btn">Let's connect. Be in touch.</a>
+      </div>
 
       <p class="construction-note anim-note">Stay tuned — site under construction.<br>We'll be right back.</p>
 
