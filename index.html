@@ -234,35 +234,83 @@
       transform: translateX(3px);
     }
 
-    /* ── CTA button ─────────────────────────────────────────── */
+    /* ── Email capture form ─────────────────────────────────── */
     .cta-wrap {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      max-width: 520px;
+    }
+
+    .email-input {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75em 1em;
+      outline: none;
+      transition: border-color 0.2s ease;
+      width: 100%;
+    }
+
+    .email-input::placeholder { color: var(--text-light); }
+    .email-input:focus { border-color: var(--crimson); }
+
     .cta-btn {
-      display: inline-block;
+      display: block;
+      width: 100%;
       font-family: var(--font-serif);
       font-size: 1.05rem;
       font-style: italic;
       font-weight: 400;
       color: #fff;
       background-color: var(--crimson);
-      text-decoration: none;
-      padding: 0.85em 2.25em;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      padding: 0.85em 1.5em;
       border-radius: 4px;
       letter-spacing: 0.01em;
       transition: background-color 0.2s ease;
     }
 
-    .cta-btn:hover {
-      background-color: var(--crimson-light);
+    .cta-btn:hover { background-color: var(--crimson-light); }
+
+    .form-privacy {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: var(--text-light);
     }
 
-    @media (max-width: 640px) {
-      .cta-btn {
-        display: block;
-        text-align: center;
-      }
+    /* ── Small contact link ──────────────────────────────────── */
+    .contact-wrap {
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-link {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.45em 1.1em;
+      border-radius: 4px;
+      display: inline-block;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--crimson);
+      border-color: var(--crimson);
     }
 
     /* ── Mobile ──────────────────────────────────────────────── */
@@ -302,10 +350,18 @@
       </p>
 
       <div class="cta-wrap anim-cta">
-        <a href="https://www.alangrubnermusic.com/contact" class="cta-btn">Let's connect. Be in touch.</a>
+        <form class="email-form" action="https://app.kit.com/forms/cb53d99c1f/subscriptions" method="post" data-sv-form="cb53d99c1f" data-uid="cb53d99c1f">
+          <input type="email" name="email_address" placeholder="Enter your email" required class="email-input">
+          <button type="submit" class="cta-btn">Get the free Unlearning Guide, &amp; get ahead of the hidden judging.</button>
+          <p class="form-privacy">No spam. Unsubscribe anytime.</p>
+        </form>
       </div>
 
-      <p class="construction-note anim-note">Stay tuned — site under construction.<br>We'll be right back.</p>
+      <div class="contact-wrap anim-note">
+        <a href="https://www.alangrubnermusic.com/contact" class="contact-link">Contact Alan →</a>
+      </div>
+
+      <p class="construction-note anim-note">Stay tuned — site under renovation.<br>We'll be right back.</p>
 
     </div>
   </div>
