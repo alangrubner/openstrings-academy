@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Block utility and print-only pages from indexing
+Disallow: /font-preview.html
+Disallow: /the-unlearning-guide-print.html
+Disallow: /index-main.html
+Disallow: /writing.html
+Disallow: /blog posts/
+
+Sitemap: https://openstrings.academy/sitemap.xml
