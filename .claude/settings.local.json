@@ -8,7 +8,18 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git checkout:*)",
-      "Bash(brew --version)"
+      "Bash(brew --version)",
+      "Bash(magick /Users/alangrubner/Downloads/openstrings-academy-main/assets/photo/Josh_alan_light_vid_thumb.png -format \"top-center\\(445,0\\): %[fx:p{445,0}.r*255],%[fx:p{445,0}.g*255],%[fx:p{445,0}.b*255]\\\\nbottom-center\\(445,497\\): %[fx:p{445,497}.r*255],%[fx:p{445,497}.g*255],%[fx:p{445,497}.b*255]\\\\ntop-left\\(0,5\\): %[fx:p{0,5}.r*255],%[fx:p{0,5}.g*255],%[fx:p{0,5}.b*255]\\\\nbottom-left\\(0,492\\): %[fx:p{0,492}.r*255],%[fx:p{0,492}.g*255],%[fx:p{0,492}.b*255]\" info:)",
+      "Bash(magick /Users/alangrubner/Downloads/openstrings-academy-main/assets/photo/Josh_alan_light_vid_thumb.png -format \"y=0: %[fx:p{200,0}.r*255],%[fx:p{200,0}.g*255],%[fx:p{200,0}.b*255] | y=1: %[fx:p{200,1}.r*255],%[fx:p{200,1}.g*255],%[fx:p{200,1}.b*255] | y=2: %[fx:p{200,2}.r*255],%[fx:p{200,2}.g*255],%[fx:p{200,2}.b*255] | y=10: %[fx:p{200,10}.r*255],%[fx:p{200,10}.g*255],%[fx:p{200,10}.b*255] | y=496: %[fx:p{200,496}.r*255],%[fx:p{200,496}.g*255],%[fx:p{200,496}.b*255] | y=497: %[fx:p{200,497}.r*255],%[fx:p{200,497}.g*255],%[fx:p{200,497}.b*255]\" info:)",
+      "Bash(ffmpeg -i /Users/alangrubner/Downloads/openstrings-academy-main/assets/video/V_L_Josh_alan_light.mp4 -af \"volumedetect\" -f null -)",
+      "Bash(ffmpeg -i /Users/alangrubner/Downloads/openstrings-academy-main/assets/video/alan_solo_site_topanga_comp.mp4 -af \"volume=8.5dB\" -c:v copy -c:a aac -b:a 152k /tmp/alan_solo_normalized.mp4)",
+      "Bash(ffmpeg -i /tmp/alan_solo_normalized.mp4 -af \"volumedetect\" -f null -)",
+      "Bash(curl -s \"https://www.talkyard.io/\")",
+      "Bash(open https://openstrings-academy.vercel.app)",
+      "Bash(git push:*)",
+      "Bash(netlify api:*)",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
     ]
   }
 }

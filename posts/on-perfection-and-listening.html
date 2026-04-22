@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>On Perfection and Listening | Open Strings Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #8B1A2B;
+      --accent-light: #b8293d;
+      --bg: #faf9f6;
+      --text: #1a1a1a;
+      --text-muted: #5a5a5a;
+      --rule: #e0ddd6;
+      --max-width: 680px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.8;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      max-width: var(--max-width);
+      margin: 4rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .article-category {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .article-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .article-meta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    .article-meta span { margin-right: 1.5rem; }
+
+    /* PULL QUOTE / LEDE */
+    .pull-quote {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.75rem;
+      margin: 0 0 3rem;
+      background: rgba(139, 26, 43, 0.04);
+    }
+
+    .pull-quote p {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    /* DIVIDER */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 3rem 0;
+    }
+
+    /* BODY */
+    .article-body {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .article-body p {
+      margin-bottom: 1.75rem;
+    }
+
+    .article-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* INLINE PULL */
+    .inline-pull {
+      font-family: 'Lora', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--accent);
+      text-align: center;
+      padding: 2rem 0;
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .cta-block {
+      margin: 4rem 0 0;
+      padding: 2.5rem;
+      border: 1px solid var(--rule);
+      background: #fff;
+      text-align: center;
+    }
+
+    .cta-block p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.8rem 2rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cta-button:hover { background: var(--accent-light); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 2.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1.25rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .article-header, .article-body { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .cta-block { padding: 1.75rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/">Open Strings Academy</a>
+    <ul class="nav-links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/#courses">Courses</a></li>
+    </ul>
+  </nav>
+
+  <article>
+
+    <header class="article-header">
+      <p class="article-category">Practice &amp; Presence</p>
+      <h1 class="article-title">On Perfection and Listening</h1>
+      <p class="article-meta">
+        <span>By Alan Grubner</span>
+      </p>
+
+      <blockquote class="pull-quote">
+        <p>Maybe the goal isn't for the performer's playing to be perfect. Maybe the goal is for our <em>listening</em> to be as perfect as it can be.</p>
+      </blockquote>
+    </header>
+
+    <div class="article-body">
+
+      <p>
+        Not long ago I watched Johnny Gandelsman record the Bach Cello Suites live — all six of them, in their violin transcription, in a single sitting. And sitting there, I found myself thinking about perfection. Not whether Johnny's playing was perfect. About whether that's even the right question to ask.
+      </p>
+
+      <p>
+        Think about what it means to speak a language — really speak it. Expressively. With something genuine to say. When what you're communicating feels true to you, and that truth comes through with conviction, and the listener feels it — when they sense that you've shared your whole heart with them — then the music becomes a bridge. A vehicle for your humanity that makes possible a real connection: between your humanity and theirs, and by extension to the wider community of human beings.
+      </p>
+
+      <p>
+        If all of that is present — and it was so clearly present as Johnny played his felt, lived, understood experience of these suites — how could anyone say that performance was anything less than perfect? And where does the idea of perfection even have a place in that conversation?
+      </p>
+
+      <hr class="rule" />
+
+      <p>
+        Sure, on a different night, with a different audience, he might have executed certain passages with greater technical precision. But does anyone care? Does anyone remember, on a night when someone spoke from their heart and the message landed, whether every word was flawlessly pronounced — whether one sentence rolled more easily off the tongue than another? On both nights, the feeling of the night and the heart of the speaker were absolutely, undeniably present in every moment.
+      </p>
+
+      <p class="inline-pull">"How undefended can your listening be?"</p>
+
+      <p>
+        I'm not knocking technical precision. I have a very fancy degree in English literature from one of the fanciest places you can get such a degree. But once someone has done the work — learned the language, developed a relationship with its vocabulary, found their own way with it — at that point, the only thing I care about is how deeply I can feel their humanity. The greatest measure of a performance is how fully I'm drawn into the container, how completely I'm invited to be present so the language can be spoken and truly received.
+      </p>
+
+      <p>
+        How deeply am I called into my own humanity, my own silence, my own vulnerability — so that I can receive what's being offered without defending against it?
+      </p>
+
+      <hr class="rule" />
+
+      <p>
+        So maybe the goal isn't for the performer's playing to be perfect. Maybe the goal is for our <em>listening</em> to be as perfect as it can be. How open can your heart be as you sit there and make yourself a vessel — a relay station in a relay — for what's being given?
+      </p>
+
+      <p>
+        That's the invitation.
+      </p>
+
+      <div class="cta-block">
+        <p>
+          If this resonates with you, Open Strings Academy exists to help string players access exactly this kind of listening — in themselves, in their practice, and in their playing. Come explore what's possible.
+        </p>
+        <a class="cta-button" href="/#courses">Explore the Courses</a>
+      </div>
+
+    </div>
+  </article>
+
+  <footer>
+    &copy; 2025 Open Strings Academy &mdash; Alan Grubner
+  </footer>
+
+</body>
+</html>
