@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unlearning Guide — Presentation</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://openstrings.academy/unlearning-guide-slides.html">
+<meta property="og:title" content="The Unlearning Guide — Open Strings Academy">
+<meta property="og:description" content="A visual guide to unlearning classical music habits and rediscovering your instrument through mindful practice.">
+<meta property="og:image" content="https://openstrings.academy/munter-mountain-path.jpg">
+<meta property="og:site_name" content="Open Strings Academy">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #111010;
+    --bg-slide: #141211;
+    --cream: #e8dfd3;
+    --cream-muted: #c4b5a8;
+    --accent: #c4856a;
+    --accent-dim: #6e4538;
+    --rule: #2a1f1a;
+    --label-dim: #3d3330;
+    --nav-h: 52px;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    background: #0a0908;
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,9,8,0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    height: var(--nav-h);
+    border-bottom: 1px solid #1a1412;
+    gap: 12px;
+  }
+
+  .nav-brand {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .nav-btn {
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--cream-muted);
+    box-shadow: 0 0 6px rgba(196, 133, 106, 0.75), 0 0 1px rgba(196, 133, 106, 0.9);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+  }
+
+  .nav-btn:hover, .nav-btn:active {
+    background: rgba(138, 90, 74, 0.2);
+    color: var(--cream);
+  }
+
+  @media (max-width: 860px) {
+    .nav-btn {
+      border-color: var(--accent);
+      color: var(--cream);
+    }
+    .nav-btn:hover, .nav-btn:active {
+      box-shadow: 0 0 10px rgba(196, 133, 106, 0.9), 0 0 2px rgba(196, 133, 106, 1);
+    }
+  }
+
+  .nav-btn:disabled {
+    opacity: 0.25;
+    cursor: default;
+  }
+
+  .slide-counter {
+    font-size: 10px;
+    color: var(--accent-dim);
+    letter-spacing: 0.1em;
+    min-width: 44px;
+    text-align: center;
+  }
+
+  /* SLIDES */
+  .slides-container {
+    width: 100%;
+    padding-top: var(--nav-h);
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    min-height: calc(100vh - var(--nav-h));
+    background: var(--bg-slide);
+    align-items: center;
+    justify-content: center;
+    padding: clamp(40px, 6vw, 80px) clamp(60px, 6vw, 64px);
+    padding-left: 104px;
+    padding-right: 104px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .slide.active {
+    display: flex;
+  }
+
+  .slide-cover {
+    background: var(--bg);
+  }
+
+  .slide-inner {
+    max-width: 900px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* decorative rules */
+  .deco-rule {
+    width: 140px;
+    height: 1px;
+    background: var(--accent-dim);
+    margin: 0 auto 28px;
+  }
+
+  .deco-rule-left {
+    width: 44px;
+    height: 1px;
+    background: var(--accent-dim);
+    margin: 0 0 20px;
+  }
+
+  /* COVER */
+  .cover-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #3a3230;
+    margin-bottom: clamp(28px, 5vw, 56px);
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 8vw, 5.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: clamp(16px, 3vw, 32px);
+  }
+
+  .cover-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.8vw, 1.56rem);
+    color: var(--cream-muted);
+    margin-bottom: clamp(32px, 5vw, 64px);
+    line-height: 1.5;
+  }
+
+  .cover-brand {
+    font-size: 14px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Lighter glow shared by r-card hover, osa links hover, journey/path text */
+  .glow-warm {
+    color: var(--accent);
+    text-shadow: 0 0 8px rgba(196, 133, 106, 0.34), 0 0 2px rgba(196, 133, 106, 0.4);
+  }
+
+  a.osa-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+  a.osa-link:hover {
+    color: #e8c4b0;
+    text-shadow: 0 0 8px rgba(232, 196, 176, 0.34), 0 0 2px rgba(255, 240, 230, 0.4);
+  }
+
+  /* SHIFT LABEL */
+  .shift-number {
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  /* TITLES */
+  .slide-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.9rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: clamp(16px, 3vw, 28px);
+  }
+
+  /* BODY */
+  .slide-body {
+    color: var(--cream-muted);
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.8;
+  }
+
+  .slide-body p {
+    margin-bottom: 14px;
+  }
+
+  /* QUOTE */
+  .slide-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.2vw, 1.55rem);
+    color: var(--cream);
+    line-height: 1.5;
+    border-left: 2px solid var(--accent-dim);
+    padding: 14px 22px;
+    margin: clamp(16px, 3vw, 28px) 0;
+  }
+
+  /* LIST */
+  .slide-list {
+    list-style: none;
+    margin: 16px 0;
+  }
+
+  .slide-list li {
+    color: var(--cream-muted);
+    font-size: clamp(0.85rem, 1.4vw, 0.975rem);
+    line-height: 1.65;
+    padding: 7px 0 7px 22px;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .slide-list li:last-child { border-bottom: none; }
+
+  .slide-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-dim);
+  }
+
+  .asterisk-list li::before { content: ''; }
+  .asterisk-list li { display: flex; align-items: baseline; padding-left: 0; text-indent: 0; }
+  .asterisk-list li sup { flex-shrink: 0; min-width: 1em; }
+
+  /* TWO-COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+    min-width: 0;
+  }
+
+  .two-col > * {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .col-label {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  /* 4 R's */
+  .four-r {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(12px, 2vw, 20px);
+    margin: clamp(16px, 3vw, 28px) 0;
+    min-width: 0;
+  }
+
+  .four-r > * { min-width: 0; }
+
+  .r-card {
+    border: 1px solid var(--accent);
+    padding: clamp(14px, 2.5vw, 22px);
+    box-shadow: 0 0 12px rgba(196, 133, 106, 0.45);
+    transition: box-shadow 0.2s;
+  }
+
+  .r-card:hover .r-title {
+    color: #e8c4b0;
+    text-shadow: 0 0 8px rgba(232, 196, 176, 0.85), 0 0 2px rgba(255, 240, 230, 1);
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+
+  .r-num {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--accent-dim);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .r-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: var(--cream);
+    font-weight: 400;
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+
+  /* BIG CALLOUT */
+  .big-callout {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: clamp(16px, 3vw, 28px);
+  }
+
+  /* WATERMARK */
+  .slide-num-watermark {
+    position: absolute;
+    bottom: 20px;
+    right: 28px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--label-dim);
+  }
+
+  /* PROGRESS */
+  .progress {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+    z-index: 200;
+  }
+
+  /* SIDE ARROWS */
+  .slide-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 90;
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 18px;
+    width: 44px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 0 6px rgba(196, 133, 106, 0.75), 0 0 1px rgba(196, 133, 106, 0.9);
+    opacity: 0.85;
+  }
+
+  .slide-arrow:hover {
+    background: rgba(138, 90, 74, 0.2);
+    color: var(--cream);
+    box-shadow: 0 0 10px rgba(196, 133, 106, 0.9), 0 0 2px rgba(196, 133, 106, 1);
+    opacity: 1;
+  }
+
+  .slide-arrow:disabled {
+    opacity: 0.1;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* Keep arrows outside the 900px content area when viewport is wide enough;
+     fall back to viewport edge when window is narrower than ~1020px */
+  .slide-arrow-left  { left: max(12px, calc(50vw - 450px - 56px)); }
+  .slide-arrow-right { right: max(12px, calc(50vw - 450px - 56px)); }
+
+  @media (max-width: 540px) {
+    .slide-arrow { display: none; } /* swipe handles navigation on mobile */
+  }
+
+  /* HINT */
+  .key-hint {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--label-dim);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    white-space: nowrap;
+  }
+
+  .key-hint.show { opacity: 1; }
+
+  /* ── RESPONSIVE BREAKPOINTS ── */
+
+  /* Tablet / narrow desktop: ≤ 860px */
+  @media (max-width: 860px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .slide-list, .slide-quote, .slide-body { max-width: 100%; }
+  }
+
+  /* Mobile: ≤ 540px */
+  @media (max-width: 540px) {
+    :root { --nav-h: 48px; }
+
+    .nav { padding: 0 16px; gap: 8px; }
+    .nav-brand { font-size: 8px; letter-spacing: 0.2em; }
+    .nav-btn { font-size: 9px; padding: 5px 10px; }
+    .slide-counter { font-size: 9px; min-width: 36px; }
+
+    .slide {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .four-r, .four-r[style] { grid-template-columns: 1fr 1fr !important; }
+
+    .cover-eyebrow { margin-bottom: 20px; }
+    .deco-rule { margin-bottom: 20px; }
+
+    .slide-num-watermark { bottom: 14px; right: 16px; }
+  }
+
+  /* Very small: ≤ 380px */
+  @media (max-width: 380px) {
+    .four-r, .four-r[style] { grid-template-columns: 1fr !important; }
+    .nav-brand { display: none; }
+  }
+
+  /* ── HEIGHT BREAKPOINTS ── */
+
+  /* Short window: ≤ 700px tall */
+  @media (max-height: 700px) {
+    .slide {
+      align-items: flex-start;
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+    .slide-title { margin-bottom: 12px; }
+    .cover-title { margin-bottom: 16px; }
+    .cover-eyebrow { margin-bottom: 16px; }
+    .cover-subtitle { margin-bottom: 24px; }
+    .deco-rule { margin-bottom: 16px; margin-top: 16px; }
+    .deco-rule-left { margin-bottom: 12px; }
+    .slide-quote { margin: 12px 0; padding: 10px 18px; }
+    .slide-list { margin: 10px 0; }
+    .slide-list li { padding-top: 5px; padding-bottom: 5px; }
+    .four-r { margin: 12px 0; }
+    .r-card { padding: 12px 16px; }
+    .shift-number { margin-bottom: 6px; }
+    .slide-body p { margin-bottom: 8px; }
+    .two-col { gap: 24px; }
+  }
+
+  /* Very short window: ≤ 520px tall */
+  @media (max-height: 520px) {
+    :root { --nav-h: 44px; }
+    .slide { padding-top: 16px; padding-bottom: 16px; }
+    .slide-title { font-size: clamp(1.4rem, 3.5vw, 2.2rem); margin-bottom: 8px; }
+    .cover-title { font-size: clamp(1.8rem, 5vw, 3rem); }
+    .cover-eyebrow { margin-bottom: 10px; }
+    .cover-subtitle { font-size: 1rem; margin-bottom: 14px; }
+    .slide-body { font-size: 0.85rem; line-height: 1.6; }
+    .slide-list li { font-size: 0.82rem; padding-top: 4px; padding-bottom: 4px; }
+    .slide-quote { font-size: 1rem; padding: 8px 14px; margin: 8px 0; }
+    .four-r { gap: 10px; margin: 8px 0; }
+    .r-card { padding: 10px 14px; }
+    .r-title { font-size: 1.1rem; }
+    .deco-rule { margin-bottom: 10px; margin-top: 10px; }
+    .two-col { gap: 16px; }
+    .slide-arrow { height: 48px; top: 55%; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand"><a href="https://openstrings.academy" target="_blank" class="osa-link">Open Strings Academy</a></div>
+  <div class="nav-controls">
+    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Prev</button>
+    <span class="slide-counter" id="counter">1 / 9</span>
+    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+  </div>
+</nav>
+
+<div class="progress" id="progress"></div>
+<button class="slide-arrow slide-arrow-left"  id="arrowPrev" onclick="changeSlide(-1)" aria-label="Previous slide">&#8592;</button>
+<button class="slide-arrow slide-arrow-right" id="arrowNext" onclick="changeSlide(1)"  aria-label="Next slide">&#8594;</button>
+<div class="slides-container" id="slidesContainer">
+
+  <!-- SLIDE 1: COVER -->
+  <div class="slide slide-cover active">
+    <div class="slide-inner" style="text-align:center;">
+      <div class="cover-eyebrow">A Free Guide for String Players</div>
+      <div class="deco-rule"></div>
+      <div class="cover-title">The Unlearning<br>Guide</div>
+      <div class="cover-subtitle">5 Shifts Classical String Players Need to Improvise Freely</div>
+      <div class="deco-rule"></div>
+      <div style="margin-top:32px;" class="cover-brand"><a href="https://openstrings.academy" target="_blank" class="osa-link">Open Strings Academy</a></div>
+    </div>
+    <div class="slide-num-watermark">01</div>
+  </div>
+
+  <!-- SLIDE 2: INTRO -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="deco-rule-left"></div>
+      <div class="shift-number">Introduction</div>
+      <div class="slide-title">The Problem With<br>How We Were Trained</div>
+      <div class="slide-body">
+        <p>As a classical player, getting caught up in judgments is a habit; a deeply grooved one, built over years of training — rewarding precision over exploration, correctness over curiosity, the "right answer" over your creative instinct.</p>
+        <p>Improvisation requires unlearning some of those habits and building new ones centered on presence, curiosity and tolerance for uncertainty.</p>
+      </div>
+      <div class="slide-quote">"These practices will empower you to enjoy playing more freely, maybe more than you'd ever thought possible. And, if you do the training consistently, they will transform your playing, all the way across the board."</div>
+    </div>
+    <div class="slide-num-watermark">02</div>
+  </div>
+
+  <!-- SLIDE 3: SHIFT 1 -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="deco-rule-left"></div>
+      <div class="shift-number">Shift 1 of 5</div>
+      <div class="slide-title">The Control Habit</div>
+      <p class="slide-body" style="margin-bottom:24px;">Your training didn't fail you. It succeeded at something very specific. Spending a lot of time training in one musical lane can also sometimes limit creativity and restrict your musicality as you move into other lanes.</p>
+      <div class="two-col">
+        <div>
+          <div class="col-label">What It Looks Like</div>
+          <ul class="slide-list">
+            <li>Mental chatter before you'll let yourself improvise</li>
+            <li>Feeling overwhelmed, maybe even paralyzed by possibilities</li>
+            <li>Low-grade anxiety when familiar structure isn't available</li>
+          </ul>
+        </div>
+        <div>
+          <div class="col-label" style="color:#d2a28e;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);">The Shift</div>
+          <p class="slide-body" style="margin-bottom:20px;border-left:2px solid var(--accent);padding-left:10px;">See if you can relax a little around any urge to drown out or overcome the habit. It's enough to just recognize it. <em>However much and whenever you can,</em> notice any particular shape it seems to take — is there hesitation, spiralling, tension in the body? <em>Just train the noticing,</em> and watch what happens over time.</p>
+          <div class="slide-quote" style="font-size:1.2rem;">"Ah, of course it's like this right now. Right now it's like this." — Then breathe in deeply. Exhale slowly. That's the training."</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num-watermark">03</div>
+  </div>
+
+  <!-- SLIDE 4: SHIFT 2 -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="deco-rule-left"></div>
+      <div class="shift-number">Shift 2 of 5</div>
+      <div class="slide-title">Welcoming Fear<br>as Information</div>
+      <div class="slide-body">
+        <p>When the body contracts before improvising — breath shortens, muscles tighten — that's not a problem to push through. It's <strong style="color:var(--cream)">data</strong>. The body is offering precise information about where the edge is.</p>
+      </div>
+      <div class="col-label" style="margin-top:28px;">Drop These Four Questions Into the Mind</div>
+      <ul class="slide-list">
+        <li>Where in my body do I feel what my mind is calling "fear?"</li>
+        <li>Can I bring some curiosity to this?</li>
+        <li>However it is — right now — can that be okay?</li>
+        <li>Is there any particular place I notice in the body, any place I can relax, however much or how little I possibly can?</li>
+      </ul>
+      <p style="text-align:center; margin-top:14px; font-family:Helvetica,Arial,sans-serif; font-size:clamp(0.75rem,1.3vw,1rem); color:#c4856a;"><span style="text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);">Now breathe</span> — The training is to remember to breathe, however deeply you can:</p>
+      <p style="text-align:center; font-family:Helvetica,Arial,sans-serif; font-size:clamp(0.85rem,1.5vw,1.125rem); color:#c4856a; margin-top:6px;"><span style="text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);"><em>Inhale : 2 : 3 : 4 &nbsp;&nbsp; Exhale : 2 : 3 : 4</em></span></p>
+      <p style="text-align:center; font-family:Helvetica,Arial,sans-serif; font-size:clamp(0.65rem,1.1vw,0.8rem); color:#c4856a; margin-top:6px;">try this cycle 3x</p>
+      <div class="slide-quote" style="font-size:clamp(1.55rem, 2.2vw, 2.05rem);margin-top:clamp(6px,1.2vw,11px);">"You can't get to the curiosity while you're desperately trying to chase away the fear."</div>
+    </div>
+    <div class="slide-num-watermark">04</div>
+  </div>
+
+  <!-- SLIDE 5: SHIFT 3 -->
+  <div class="slide" style="background:#0f0e0d;">
+    <div class="slide-inner">
+      <div class="deco-rule-left"></div>
+      <div class="shift-number">Shift 3 of 5</div>
+      <div class="slide-title">The Myth of the<br>Natural Improviser</div>
+      <div class="two-col" style="margin-top:8px;">
+        <div>
+          <div class="col-label">A Story We Tell</div>
+          <p class="slide-body">"That musician out there just <em>has it"</em> — they were born playing freely, never once intimidated by the silence before the first note.</p>
+          <div class="col-label" style="margin-top:1em;">The Truth</div>
+          <p class="slide-body">Improvisation is a language. And <em>Nobody</em> was born speaking it freely. Likewise, nobody spontaneously starts telling stories in a foreign language, using vocabulary that's completely unfamiliar.</p>
+          <p class="slide-body" style="margin-top:10px;margin-bottom:4px;color:#925b49;font-size:0.85rem;letter-spacing:0.045em;">What looks like a gift is just the expression of a different education:</p>
+          <ul class="slide-list asterisk-list" style="margin-top:4px;">
+            <li><sup>*</sup><span>Jazz: specific language, specialized ear training, advanced interval awareness, harmony's building blocks</span></li>
+            <li><sup>*</sup><span>Bluegrass/folk: imitation, repetition, transcription, playing "wrong" notes in rooms full of others doing the same</span></li>
+          </ul>
+          <p style="margin-top:8px;font-size:0.78rem;color:var(--accent-dim);line-height:1.6;"><sup style="color:var(--cream-muted);font-size:clamp(0.71rem,1.16vw,0.81rem);">*</sup>Stay tuned at <a href="https://openstrings.academy" target="_blank" class="osa-link" style="color:var(--accent);">openstrings.academy</a>. Check out the blog, and join the waitlist for courses designed specifically to empower you with new musical language.</p>
+        </div>
+        <div>
+          <div class="col-label" style="color:#d2a28e;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);">The Shift</div>
+          <div class="slide-quote" style="margin-top:0;font-style:normal;border-left:2px solid var(--accent);filter:drop-shadow(-2px 0 5px rgba(196,133,106,0.6));">"Classical training didn't limit your capacity to improvise. It just provided a highly specialized jumping off point — a wonderful foundation on which to build and learn new language."</div>
+          <div style="border-left:2px solid var(--accent-dim); padding-left:10px; margin-top:14px;">
+            <div class="col-label">The Training</div>
+            <p class="slide-body" style="margin-top:6px;">The skill is catching yourself in a judgment and reframing — moving out of the place of <em>"I just don't get it"</em> or <em>"I just don't have it"</em>  into a place of <em>curiosity.</em><span style="display:block;margin-top:0.75em;text-shadow:0 0 8px rgba(196,133,106,0.05),0 0 2px rgba(196,133,106,0.05);"><em>"I wonder what's involved in learning this? I wonder what it'll be like to study something new?"</em></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num-watermark">05</div>
+  </div>
+
+  <!-- SLIDE 7: SHIFT 4 -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="deco-rule-left"></div>
+      <div class="shift-number">Shift 4 of 5</div>
+      <div class="slide-title">Your First Drone Exercise</div>
+      <div class="slide-quote" style="margin-bottom:8px;border-left:none;padding-left:0;">"Most people approach improvisation like: what should I play next?"</div>
+      <div class="col-label" style="margin-bottom:4px;color:#d2a28e;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);">The Shift</div>
+      <div class="slide-quote" style="margin-top:0;margin-bottom:24px;border-left:none;padding-left:2.6rem;">"Starting from right here: how am I relating to the sound right now?"</div>
+      <div class="two-col">
+        <div>
+          <div class="col-label">The Practice</div>
+          <ul class="slide-list">
+            <li>Start drone. Sit with instrument — don't play yet…</li>
+            <li>1 min: just listen. Let the drone settle. Notice where you feel it…</li>
+            <li>When ready: play one note. Hold it…</li>
+            <li>Notice the bow's weight, feel of the stick, hair tension — as much subtlety as you can sense in the sound as it changes…</li>
+            <li>Hold longer than feels comfortable…</li>
+            <li>Let the note fade. Listen to the silence after. Play another…</li>
+          </ul>
+        </div>
+        <div>
+          <div class="col-label">What You Need</div>
+          <ul class="slide-list">
+            <li>iTablaPro Lite (iOS) or Dhwani Tanpura app (both free, iOS/Android) — set to D or G</li>
+            <li>Or a sustained D or G on any keyboard/digital source on loop</li>
+            <li>Or: another player quietly bowing open D or G, or even both</li>
+          </ul>
+          <div class="col-label" style="margin-top:28px;">Duration</div>
+          <p class="slide-body">Just a few minutes, just a few days a week</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num-watermark">06</div>
+  </div>
+
+  <!-- SLIDE 8: SHIFT 5 -->
+  <div class="slide">
+    <div class="slide-inner">
+      <div class="deco-rule-left"></div>
+      <div class="shift-number">Shift 5 of 5</div>
+      <div class="slide-title">What to Do With<br>Wrong Notes</div>
+      <div class="slide-body" style="margin-bottom:24px;">
+        <p>There <em>are</em> no wrong notes — only notes we're unable or unwilling to resolve. Any note can follow any note and land, when played with conviction and adequate context.</p>
+      </div>
+      <div class="col-label" style="font-size:16px;">When You Get Thrown — The 4 R's</div>
+      <div class="four-r" style="grid-template-columns:repeat(4,1fr);">
+        <div class="r-card" style="padding:10px 12px;">
+          <div class="r-num">01</div>
+          <div class="r-title">Relax</div>
+          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">the body, breathe</p>
+        </div>
+        <div class="r-card" style="padding:10px 12px;">
+          <div class="r-num">02</div>
+          <div class="r-title">Remember</div>
+          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">the training</p>
+        </div>
+        <div class="r-card" style="padding:10px 12px;">
+          <div class="r-num">03</div>
+          <div class="r-title">Recover</div>
+          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">attention</p>
+        </div>
+        <div class="r-card" style="padding:10px 12px;">
+          <div class="r-num">04</div>
+          <div class="r-title">Return</div>
+          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">to what's happening <em>now</em></p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num-watermark">07</div>
+  </div>
+
+  <!-- SLIDE 9: THE DEEPER TRUTH -->
+  <div class="slide" style="background:#0f0e0d;">
+    <div class="slide-inner" style="text-align:center;display:flex;flex-direction:column;align-items:center;">
+      <div class="shift-number" style="margin-bottom:32px;text-shadow:0 0 8px rgba(196,133,106,0.15),0 0 2px rgba(196,133,106,0.15);">The Deeper Truth</div>
+      <div class="big-callout" style="text-align:center;text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);">"The fear of the wrong note is the fear of being seen in your imperfection."</div>
+      <div class="slide-body" style="max-width:600px;text-align:center;">
+        <p>Improvisation asks you to make your process audible — to let people hear you not-knowing, and then knowing, and then not-knowing again.</p>
+        <p>That's not an inferior performance. That's the direct expression of your humanity.</p>
+      </div>
+      <div style="margin-top:40px;width:120px;height:1px;background:var(--accent-dim);"></div>
+    </div>
+    <div class="slide-num-watermark">08</div>
+  </div>
+
+  <!-- SLIDE 10: CLOSE -->
+  <div class="slide slide-cover">
+    <div class="slide-inner" style="text-align:center;">
+      <div class="cover-brand glow-warm" style="margin-bottom:24px;">Continue the Journey at</div>
+      <div class="deco-rule"></div>
+      <div class="slide-title" style="font-size:clamp(1.8rem,4vw,3rem);color:var(--accent);"><a href="https://openstrings.academy" target="_blank" class="osa-link">openstrings.academy</a></div>
+      <div class="slide-body" style="margin:28px auto;max-width:520px;text-align:center;">
+        <p>train kind awareness → drone practice → instrument as insight → improvisation for classically trained musicians</p>
+      </div>
+      <div class="deco-rule" style="margin-top:32px;"></div>
+      <div style="margin-top:32px;" class="cover-brand glow-warm">Stay On Your Path</div>
+    </div>
+    <div class="slide-num-watermark">09</div>
+  </div>
+
+</div>
+
+<div class="key-hint" id="keyHint">Use ← → arrow keys to navigate</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+
+  function updateUI() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    document.getElementById('counter').textContent = `${current + 1} / ${total}`;
+    document.getElementById('progress').style.width = `${((current + 1) / total) * 100}%`;
+    const atStart = current === 0;
+    const atEnd   = current === total - 1;
+    document.getElementById('prevBtn').disabled   = atStart;
+    document.getElementById('nextBtn').disabled   = atEnd;
+    document.getElementById('arrowPrev').disabled = atStart;
+    document.getElementById('arrowNext').disabled = atEnd;
+    window.scrollTo(0, 0);
+  }
+
+  function changeSlide(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < total) {
+      current = next;
+      updateUI();
+    }
+  }
+
+  // Keyboard
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') changeSlide(1);
+    if (e.key === 'ArrowLeft')  changeSlide(-1);
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      window.scrollBy({ top: e.key === 'ArrowDown' ? 80 : -80, behavior: 'smooth' });
+    }
+  });
+
+  // Touch swipe
+  let touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 44) {
+      changeSlide(dx < 0 ? 1 : -1);
+    }
+  }, { passive: true });
+
+  // Hint: keyboard on desktop, swipe on touch
+  const hint = document.getElementById('keyHint');
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  hint.textContent = isTouchDevice ? 'Swipe left / right to navigate' : 'Use ← → arrow keys to navigate';
+  setTimeout(() => hint.classList.add('show'), 800);
+  setTimeout(() => hint.classList.remove('show'), 3800);
+
+  updateUI();
+</script>
+</body>
+</html>
