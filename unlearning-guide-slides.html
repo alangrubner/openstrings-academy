@@ -167,6 +167,7 @@
     height: 1px;
     background: var(--accent-dim);
     margin: 0 0 20px;
+    box-shadow: 0 0 6px rgba(196,133,106,0.15);
   }
 
   /* COVER */
@@ -226,6 +227,7 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 10px;
+    text-shadow: 0 0 8px rgba(196,133,106,0.15), 0 0 2px rgba(196,133,106,0.15);
   }
 
   /* TITLES */
@@ -284,6 +286,17 @@
     left: 0;
     color: var(--accent-dim);
   }
+  .slide-list li.no-dash::before { content: ''; }
+  .glow-left { position: relative; padding-left: 12px; }
+  .glow-left::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(196,133,106,0.5), 0 0 2px rgba(196,133,106,0.6);
+  }
+  .glow-left li { text-shadow: 0 0 8px rgba(196,133,106,0.34), 0 0 2px rgba(196,133,106,0.4); }
 
   .asterisk-list li::before { content: ''; }
   .asterisk-list li { display: flex; align-items: baseline; padding-left: 0; text-indent: 0; }
@@ -349,8 +362,10 @@
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     color: var(--cream);
     font-weight: 400;
+    text-shadow: 0 0 8px rgba(196,133,106,0.34), 0 0 2px rgba(196,133,106,0.4);
     transition: color 0.2s, text-shadow 0.2s;
   }
+  .r-card p { text-shadow: 0 0 8px rgba(196,133,106,0.34), 0 0 2px rgba(196,133,106,0.4); }
 
   /* BIG CALLOUT */
   .big-callout {
@@ -568,7 +583,7 @@
         <p>As a classical player, getting caught up in judgments is a habit; a deeply grooved one, built over years of training — rewarding precision over exploration, correctness over curiosity, the "right answer" over your creative instinct.</p>
         <p>Improvisation requires unlearning some of those habits and building new ones centered on presence, curiosity and tolerance for uncertainty.</p>
       </div>
-      <div class="slide-quote">"These practices will empower you to enjoy playing more freely, maybe more than you'd ever thought possible. And, if you do the training consistently, they will transform your playing, all the way across the board."</div>
+      <div class="slide-quote">These practices will empower you to enjoy playing more freely, maybe more than you'd ever thought possible. And, if you do the training consistently, they will transform your playing, all the way across the board.</div>
     </div>
     <div class="slide-num-watermark">02</div>
   </div>
@@ -591,8 +606,8 @@
         </div>
         <div>
           <div class="col-label" style="color:#d2a28e;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);">The Shift</div>
-          <p class="slide-body" style="margin-bottom:20px;border-left:2px solid var(--accent);padding-left:10px;">See if you can relax a little around any urge to drown out or overcome the habit. It's enough to just recognize it. <em>However much and whenever you can,</em> notice any particular shape it seems to take — is there hesitation, spiralling, tension in the body? <em>Just train the noticing,</em> and watch what happens over time.</p>
-          <div class="slide-quote" style="font-size:1.2rem;">"Ah, of course it's like this right now. Right now it's like this." — Then breathe in deeply. Exhale slowly. That's the training."</div>
+          <p class="slide-body" style="margin-bottom:20px;border-left:2px solid var(--accent);padding-left:10px;">See if you can relax a little around any urge to drown out or overcome the habit. It's enough to just recognize it. Does it show up as hesitation, mental spiralling, tension in the body? Continue practicing the <em>noticing,</em> and watch what happens over time.</p>
+          <div class="slide-quote" style="font-size:1.2rem;border-left:2px solid var(--accent);filter:drop-shadow(-2px 0 5px rgba(196,133,106,0.6));">"Ah, of course it's like this right now. Right now it's like this." — Then breathe in deeply. Exhale slowly. That's the training.</div>
         </div>
       </div>
     </div>
@@ -606,19 +621,20 @@
       <div class="shift-number">Shift 2 of 5</div>
       <div class="slide-title">Welcoming Fear<br>as Information</div>
       <div class="slide-body">
-        <p>When the body contracts before improvising — breath shortens, muscles tighten — that's not a problem to push through. It's <strong style="color:var(--cream)">data</strong>. The body is offering precise information about where the edge is.</p>
+        <p>When the body contracts before improvising — breathing shortens, muscles tighten — that's not a problem to push through. It's <strong style="color:var(--cream)">data</strong>. The body is offering precise information about where the edge is.</p>
       </div>
-      <div class="col-label" style="margin-top:28px;">Drop These Four Questions Into the Mind</div>
-      <ul class="slide-list">
+      <div class="col-label" style="color:#d2a28e;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);margin-top:28px;">The Shift</div>
+      <div class="col-label" style="margin-top:6px;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);">Drop These Four Questions Into the Mind</div>
+      <ul class="slide-list glow-left">
         <li>Where in my body do I feel what my mind is calling "fear?"</li>
         <li>Can I bring some curiosity to this?</li>
         <li>However it is — right now — can that be okay?</li>
-        <li>Is there any particular place I notice in the body, any place I can relax, however much or how little I possibly can?</li>
+        <li>Do I notice any place in the body where I can relax at all?</li>
       </ul>
-      <p style="text-align:center; margin-top:14px; font-family:Helvetica,Arial,sans-serif; font-size:clamp(0.75rem,1.3vw,1rem); color:#c4856a;"><span style="text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);">Now breathe</span> — The training is to remember to breathe, however deeply you can:</p>
-      <p style="text-align:center; font-family:Helvetica,Arial,sans-serif; font-size:clamp(0.85rem,1.5vw,1.125rem); color:#c4856a; margin-top:6px;"><span style="text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);"><em>Inhale : 2 : 3 : 4 &nbsp;&nbsp; Exhale : 2 : 3 : 4</em></span></p>
-      <p style="text-align:center; font-family:Helvetica,Arial,sans-serif; font-size:clamp(0.65rem,1.1vw,0.8rem); color:#c4856a; margin-top:6px;">try this cycle 3x</p>
-      <div class="slide-quote" style="font-size:clamp(1.55rem, 2.2vw, 2.05rem);margin-top:clamp(6px,1.2vw,11px);">"You can't get to the curiosity while you're desperately trying to chase away the fear."</div>
+      <p style="text-align:center; margin-top:14px; font-family:Helvetica,Arial,sans-serif; font-size:clamp(0.75rem,1.3vw,1rem); color:#c4856a;"><span style="font-size:calc(clamp(0.75rem,1.3vw,1rem) + 1.5pt);text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);">Now BREATHE</span> — The training is to remember to <span style="text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);">breathe,</span> however deeply you can:</p>
+      <p style="text-align:center; font-family:Helvetica,Arial,sans-serif; font-size:clamp(0.85rem,1.5vw,1.125rem); color:#c4856a; margin-top:6px;"><span style="text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);"><em>INHALE : 2 : 3 : 4 &nbsp;&nbsp; EXHALE : 2 : 3 : 4</em></span></p>
+      <p style="text-align:center; font-family:Helvetica,Arial,sans-serif; font-size:calc(clamp(0.65rem,1.1vw,0.8rem) + 2.25pt); color:#c4856a; margin-top:6px; text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);">cycle 3x</p>
+      <div class="slide-quote" style="font-size:clamp(1.55rem, 2.2vw, 2.05rem);margin-top:clamp(6px,1.2vw,11px);">You can't get to the curiosity while you're desperately trying to chase away the fear.</div>
     </div>
     <div class="slide-num-watermark">04</div>
   </div>
@@ -644,7 +660,7 @@
         </div>
         <div>
           <div class="col-label" style="color:#d2a28e;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);">The Shift</div>
-          <div class="slide-quote" style="margin-top:0;font-style:normal;border-left:2px solid var(--accent);filter:drop-shadow(-2px 0 5px rgba(196,133,106,0.6));">"Classical training didn't limit your capacity to improvise. It just provided a highly specialized jumping off point — a wonderful foundation on which to build and learn new language."</div>
+          <div class="slide-quote" style="margin-top:0;font-style:normal;border-left:2px solid var(--accent);filter:drop-shadow(-2px 0 5px rgba(196,133,106,0.6));">Classical training didn't limit your capacity to improvise. It just provided a highly specialized jumping off point — a wonderful foundation on which to build and learn new language.</div>
           <div style="border-left:2px solid var(--accent-dim); padding-left:10px; margin-top:14px;">
             <div class="col-label">The Training</div>
             <p class="slide-body" style="margin-top:6px;">The skill is catching yourself in a judgment and reframing — moving out of the place of <em>"I just don't get it"</em> or <em>"I just don't have it"</em>  into a place of <em>curiosity.</em><span style="display:block;margin-top:0.75em;text-shadow:0 0 8px rgba(196,133,106,0.05),0 0 2px rgba(196,133,106,0.05);"><em>"I wonder what's involved in learning this? I wonder what it'll be like to study something new?"</em></span></p>
@@ -661,9 +677,10 @@
       <div class="deco-rule-left"></div>
       <div class="shift-number">Shift 4 of 5</div>
       <div class="slide-title">Your First Drone Exercise</div>
-      <div class="slide-quote" style="margin-bottom:8px;border-left:none;padding-left:0;">"Most people approach improvisation like: what should I play next?"</div>
+      <p class="slide-body" style="margin-top:6px;margin-bottom:0;color:var(--cream-muted);">A drone is a steady, continuous note that gives you a simple sound to play with — so you can focus on listening, exploring, and improvising — without worrying about chords, rhythm... or what comes next.</p>
+      <div class="slide-quote" style="margin-top:4px;margin-bottom:11px;border-left:none;padding-left:0;">Most people approach improvisation like: "What should I play next?"</div>
       <div class="col-label" style="margin-bottom:4px;color:#d2a28e;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);">The Shift</div>
-      <div class="slide-quote" style="margin-top:0;margin-bottom:24px;border-left:none;padding-left:2.6rem;">"Starting from right here: how am I relating to the sound right now?"</div>
+      <div class="slide-quote" style="margin-top:0;margin-bottom:24px;padding-left:10px;border-left:2px solid var(--accent);filter:drop-shadow(-2px 0 5px rgba(196,133,106,0.6));text-shadow:0 0 8px rgba(196,133,106,0.1),0 0 2px rgba(196,133,106,0.1);">Start from right here: "How am I relating to the sound right now?"</div>
       <div class="two-col">
         <div>
           <div class="col-label">The Practice</div>
@@ -672,7 +689,7 @@
             <li>1 min: just listen. Let the drone settle. Notice where you feel it…</li>
             <li>When ready: play one note. Hold it…</li>
             <li>Notice the bow's weight, feel of the stick, hair tension — as much subtlety as you can sense in the sound as it changes…</li>
-            <li>Hold longer than feels comfortable…</li>
+            <li>Hold just slightly longer than feels comfortable…</li>
             <li>Let the note fade. Listen to the silence after. Play another…</li>
           </ul>
         </div>
@@ -680,11 +697,13 @@
           <div class="col-label">What You Need</div>
           <ul class="slide-list">
             <li>iTablaPro Lite (iOS) or Dhwani Tanpura app (both free, iOS/Android) — set to D or G</li>
-            <li>Or a sustained D or G on any keyboard/digital source on loop</li>
-            <li>Or: another player quietly bowing open D or G, or even both</li>
+            <li style="text-align:center;justify-content:center;padding-left:0;" class="no-dash"><em>or</em></li>
+            <li>A sustained D or G on any keyboard/digital source on loop</li>
+            <li style="text-align:center;justify-content:center;padding-left:0;" class="no-dash"><em>or</em></li>
+            <li>Another player quietly bowing open D or G, or even both</li>
           </ul>
           <div class="col-label" style="margin-top:28px;">Duration</div>
-          <p class="slide-body">Just a few minutes, just a few days a week</p>
+          <p class="slide-body"><span style="color:var(--accent-dim);">—</span> Just a few minutes, just a few days a week</p>
         </div>
       </div>
     </div>
@@ -697,25 +716,26 @@
       <div class="deco-rule-left"></div>
       <div class="shift-number">Shift 5 of 5</div>
       <div class="slide-title">What to Do With<br>Wrong Notes</div>
-      <div class="slide-body" style="margin-bottom:24px;">
-        <p>There <em>are</em> no wrong notes — only notes we're unable or unwilling to resolve. Any note can follow any note and land, when played with conviction and adequate context.</p>
+      <div class="col-label" style="color:#d2a28e;text-shadow:0 0 8px rgba(210,162,142,0.34),0 0 2px rgba(210,162,142,0.4);margin-top:16px;">The Shift</div>
+      <div class="slide-body" style="margin-bottom:24px;border-left:2px solid var(--accent);filter:drop-shadow(-2px 0 5px rgba(196,133,106,0.6));padding-left:10px;">
+        <p style="text-shadow:0 0 8px rgba(196,133,106,0.08),0 0 2px rgba(196,133,106,0.08);">There <em>are</em> no wrong notes — only notes we're unable or unwilling to resolve. Any note can follow any note and land, when played with conviction and adequate context.</p>
       </div>
-      <div class="col-label" style="font-size:16px;">When You Get Thrown — The 4 R's</div>
+      <div class="col-label" style="font-size:16px;">When You Get Thrown — <span style="font-size:calc(1em + 2pt);letter-spacing:0.1em;color:#e8c4b0;text-shadow:0 0 8px rgba(232,196,176,0.75),0 0 2px rgba(255,240,230,0.9);">PAUSE</span> — then drop in The 4 R's</div>
       <div class="four-r" style="grid-template-columns:repeat(4,1fr);">
         <div class="r-card" style="padding:10px 12px;">
           <div class="r-num">01</div>
           <div class="r-title">Relax</div>
-          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">the body, breathe</p>
+          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">the body, <span style="font-size:calc(0.8rem + 1pt);letter-spacing:0.1em;text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);">BREATHE</span></p>
         </div>
         <div class="r-card" style="padding:10px 12px;">
           <div class="r-num">02</div>
           <div class="r-title">Remember</div>
-          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">the training</p>
+          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;"><em>any</em> of the trainings</p>
         </div>
         <div class="r-card" style="padding:10px 12px;">
           <div class="r-num">03</div>
           <div class="r-title">Recover</div>
-          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">attention</p>
+          <p style="font-size:0.8rem;color:var(--cream-muted);margin-top:6px;">your presence</p>
         </div>
         <div class="r-card" style="padding:10px 12px;">
           <div class="r-num">04</div>
@@ -730,9 +750,9 @@
   <!-- SLIDE 9: THE DEEPER TRUTH -->
   <div class="slide" style="background:#0f0e0d;">
     <div class="slide-inner" style="text-align:center;display:flex;flex-direction:column;align-items:center;">
-      <div class="shift-number" style="margin-bottom:32px;text-shadow:0 0 8px rgba(196,133,106,0.15),0 0 2px rgba(196,133,106,0.15);">The Deeper Truth</div>
-      <div class="big-callout" style="text-align:center;text-shadow:0 0 8px rgba(196,133,106,0.34),0 0 2px rgba(196,133,106,0.4);">"The fear of the wrong note is the fear of being seen in your imperfection."</div>
-      <div class="slide-body" style="max-width:600px;text-align:center;">
+      <div class="shift-number" style="margin-bottom:32px;text-shadow:0 0 8px rgba(196,133,106,0.3),0 0 2px rgba(196,133,106,0.3);">The Deeper Truth</div>
+      <div class="big-callout" style="text-align:center;text-shadow:0 0 8px rgba(196,133,106,0.49),0 0 2px rgba(196,133,106,0.55);">The fear of the wrong note is the fear of being seen in your imperfection.</div>
+      <div class="slide-body" style="max-width:600px;text-align:center;text-shadow:0 0 8px rgba(196,133,106,0.15),0 0 2px rgba(196,133,106,0.15);">
         <p>Improvisation asks you to make your process audible — to let people hear you not-knowing, and then knowing, and then not-knowing again.</p>
         <p>That's not an inferior performance. That's the direct expression of your humanity.</p>
       </div>
